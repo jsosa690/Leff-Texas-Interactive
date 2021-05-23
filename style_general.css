@@ -1,0 +1,164 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    min-height: 1280px;
+    color: #3b3b3b;
+    font-size: 24px;
+  }
+  
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  a {
+    margin: 0;
+    font-weight: 400;
+  }
+  
+  a,
+  a:visited,
+  a:hover {
+    color: teal;
+    text-decoration: none;
+    border-bottom: 2px solid currentColor;
+  }
+  
+  nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    background: #f3f3f3;
+    padding: 1rem;
+    padding-right: 5rem;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  
+  .nav__examples {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  
+  .nav__examples > * {
+    margin-right: 0.5rem;
+  }
+  
+  section#header {
+    background-image: url(images/header_0.png);
+    height: 100vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: grid;
+    text-align: center;
+  }
+
+  section#header #headerText {
+    grid-template-columns: 1fr;
+    width: 50%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    padding-bottom: 30px;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.85);
+    color: rgb(41, 40, 40);
+  }
+
+  section#header h1 {
+    
+    font-size: 3em;
+    line-height: 1.0;
+    text-align: center;
+    vertical-align: center;
+    color:  rgb(73, 73, 73);
+    margin: 2rem 2rem;
+    margin-bottom: 0;
+}
+
+p.byline, p.scroll {
+  font-family: ff-real-text-pro, sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 30px auto;
+}
+p.scroll {
+  font-size: 0.75rem;
+  padding-top: 3rem;
+  margin-bottom: 0;
+}
+
+  .github-corner:hover .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
+  
+  @keyframes octocat-wave {
+    0%,
+    100% {
+      transform: rotate(0);
+    }
+  
+    20%,
+    60% {
+      transform: rotate(-25deg);
+    }
+  
+    40%,
+    80% {
+      transform: rotate(10deg);
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .github-corner:hover .octo-arm {
+      animation: none;
+    }
+  
+    .github-corner .octo-arm {
+      animation: octocat-wave 560ms ease-in-out;
+    }
+  }
+  
+  #intro {
+    margin-bottom: 320px;
+  }
+  
+  #outro {
+    height: 640px;
+  }
+  
+  @media (min-width: 840px) {
+    .nav__examples {
+      margin-top: 0;
+      margin-left: 2rem;
+    }
+  }
