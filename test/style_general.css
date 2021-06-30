@@ -34,7 +34,7 @@
     border-bottom: 2px solid currentColor;
   }
   
-  nav {
+  /* nav {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -49,9 +49,9 @@
     padding-right: 5rem;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-  }
+  } */
   
-  .nav__examples {
+  /* .nav__examples {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -61,28 +61,25 @@
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     margin-top: 1rem;
-  }
-  
+  } */
+/*   
   .nav__examples > * {
     margin-right: 0.5rem;
   }
-  
+   */
   #header {
-    background-image: url(images2/bg/00.png);
+    background-image: url(../images2/bg/00.png);
     height: 100vh;
-    background-position: center;
+    /* background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
     display: grid;
-    margin-bottom: 0px;
-    -webkit-transition: background-image 0.3s ease-in-out;
-    -moz-transition: background-image 0.3s ease-in-out;
-    -ms-transition: background-image 0.3s ease-in-out;
-    transition: background-image 0.3s ease-in-out;
+    margin-bottom: 0px; */
+
   }
 
-  #headerText {
+  /* #headerText {
     grid-template-columns: 1fr;
     width: 40%;
     text-align: left;
@@ -114,50 +111,18 @@ p.headerTip {
 }
 .scrollArrow{
   margin-left: 80px;
-}
+} */
 
-#fullpage{
-  margin-top: 0px;
-}
 
 #intro_1 {
-  background-image: url(images2/bg/01.png);
-  height: 100vh;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  display: grid;
-  -webkit-transition: background-image 0.3s ease-in-out;
-  -moz-transition: background-image 0.3s ease-in-out;
-  -ms-transition: background-image 0.3s ease-in-out;
-  transition: background-image 0.3s ease-in-out;
+  background-image: url(../images2/bg/01.png);
 }
 #intro_2 {
-  background-image: url(images2/bg/02.png);
-  height: 100vh;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  display: grid;
-  -webkit-transition: background-image 0.3s ease-in-out;
-  -moz-transition: background-image 0.3s ease-in-out;
-  -ms-transition: background-image 0.3s ease-in-out;
-  transition: background-image 0.3s ease-in-out;
+  background-image: url(../images2/bg/02.png);
+
 }
 #intro_3 {
-  background-image: url(images2/bg/03.png);
-  height: 100vh;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  display: grid;
-  -webkit-transition: background-image 0.3s ease-in-out;
-  -moz-transition: background-image 0.3s ease-in-out;
-  -ms-transition: background-image 0.3s ease-in-out;
-  transition: background-image 0.3s ease-in-out;
+  background-image: url(../images2/bg/03.png);
 }
 
   .github-corner:hover .octo-arm {
