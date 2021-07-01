@@ -2,23 +2,24 @@ document.querySelector(".main").addEventListener('wheel', scrollPage);
 
 function scrollPage(e) {
     var nodesName = ['HEADER', 'SECTION', 'ASIDE'];
-    var scrollableSection = 'ASIDE';
-    var scrollableEl = $('#scrollableSection');
-    var scrollTop = scrollableEl.scrollTop();
-    var scrollInnerHeight = scrollableEl.innerHeight();
-    var scrollHeight = scrollableEl[0].scrollHeight;
-
-    if (nodesName.includes(e.target.nodeName)) {
-        var next = e.target.nextElementSibling;
-        var prev = e.target.previousElementSibling;
-        var cur = e.target;
-    } else {
-        var next = e.target.closest(nodesName).nextElementSibling;
-        var prev = e.target.closest(nodesName).previousElementSibling;
-        var cur = e.target.closest(nodesName);
-    }
-    console.log(cur.nodeName);
+    var idName = ['supply_scrolly', 'demand_scrolly'];
     
+    if (nodesName.includes(e.target.nodeName)) {
+        var next = e.target.nextElementSibling, prev = e.target.previousElementSibling, cur = e.target;
+    } else {
+        var next = e.target.closest(nodesName).nextElementSibling, prev = e.target.closest(nodesName).previousElementSibling, cur = e.target.closest(nodesName);
+    }
+    var scrollableSection = 'ASIDE';
+    var scrollableEls = [$('#scrollableSection_supply'), $('#scrollableSection_demand')];
+    var index = idName.indexOf(cur.id);
+    var scrollableEl = scrollableEls[index];
+    
+    var scrollTop, scrollInnerHeight, scrollHeight;
+    if(scrollableEl != null){
+        scrollTop = scrollableEl.scrollTop();
+        scrollInnerHeight = scrollableEl.innerHeight();
+        scrollHeight = scrollableEl[0].scrollHeight;
+    }
     if (e.deltaY < 0) {
         // scroll up
         if (prev != null && nodesName.includes(prev.nodeName)) {

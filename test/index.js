@@ -70,7 +70,7 @@ const image_svg = {
    // update graphic based on step, if the current background image != the previous image
    var cur_index = response.index; 
    if (image_png[pre_index] !== image_png[cur_index]){
-    $('figure').css("backgroundImage", "url(" + "images/" + image_png[cur_index] + ".png" + ")")
+    $('figure').css("backgroundImage", "url(" + "../images/" + image_png[cur_index] + ".png" + ")")
    }
    var pre_index = cur_index;
    console.log("cur_index:" + cur_index);
@@ -78,7 +78,7 @@ const image_svg = {
    // update the chart based on step
 
    if (cur_index >= 3) {
-     $('.img_svg').attr("src", "images/svg/" + image_svg[cur_index] + ".svg");
+     $('.img_svg').attr("src", "../images/svg/" + image_svg[cur_index] + ".svg");
    } else {
     $('.img_svg').attr("src", "");
    }

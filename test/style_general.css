@@ -70,16 +70,17 @@
   #header {
     background-image: url(../images2/bg/00.png);
     height: 100vh;
-    /* background-position: center;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
     display: grid;
-    margin-bottom: 0px; */
+    margin-bottom: 0px;
+    background-attachment: fixed;
 
   }
 
-  /* #headerText {
+  #headerText {
     grid-template-columns: 1fr;
     width: 40%;
     text-align: left;
@@ -111,7 +112,7 @@ p.headerTip {
 }
 .scrollArrow{
   margin-left: 80px;
-} */
+}
 
 
 #intro_1 {
