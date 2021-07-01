@@ -311,7 +311,7 @@ p.headerTip {
 	top: 25%;
 	left: 50%;
 	transform: translate(-50%, -25%);
-	/* animation: ball-scroll 2.5s linear infinite; */
+	animation: ball-scroll 2.5s linear infinite;
 }
 
 .mouse .mouse-msg {
