@@ -4,7 +4,6 @@ body {
 	color: #FFF;
 	font-family: "Montserrat", sans-serif;
 	overflow: hidden;
-	-webkit-overflow-scrolling: touch;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
