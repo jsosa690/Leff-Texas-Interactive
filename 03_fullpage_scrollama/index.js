@@ -1,11 +1,34 @@
-document.querySelector(".main").addEventListener('wheel', scrollPage);
-document.querySelector(".main").addEventListener('mousewheel', scrollPage);
-document.querySelector(".main").addEventListener('DOMMouseScroll', scrollPage);
-document.querySelector(".main").addEventListener('onmousewheel', scrollPage);
-document.querySelector(".main").addEventListener('MozMousePixelScroll', scrollPage);
-document.querySelector(".main").addEventListener('touchmove', scrollPage);
+var touchStartY, touchEndY;
+
+
+
+document.querySelector(".main").addEventListener('wheel', scrollPage, {capture: false, passive: false});
+document.querySelector(".main").addEventListener('touchstart', getTouchStartY, {capture: false, passive: false});
+document.querySelector(".main").addEventListener('touchend', getTouchEndY, {capture: false, passive: false});
+document.querySelector(".main").addEventListener('touchend', scrollPage, {capture: false, passive: false});
+// document.querySelector(".main").addEventListener('mousewheel', scrollPage);
+// document.querySelector(".main").addEventListener('DOMMouseScroll', scrollPage);
+// document.querySelector(".main").addEventListener('onmousewheel', scrollPage);
+// document.querySelector(".main").addEventListener('MozMousePixelScroll', scrollPage);
+// document.querySelector(".main").addEventListener('touchmove', scrollPage);
+
+function getTouchStartY(e){
+    touchStartY = e.touches[0].pageY;
+}
+function getTouchEndY(e){
+    touchEndY = e.changedTouches[0].pageY;
+}
 
 function scrollPage(e) {
+    console.log("deltaY: " + e.deltaY);
+    console.log("deltaMode: " + e.deltaMode);
+    console.log("wheelDelta: " + e.wheelDelta);
+    console.log("wheelDeltaX: " + e.wheelDeltaX);
+    console.log("wheelDeltaY: " + e.wheelDeltaY);
+    console.log("detail: " + e.detail);
+    console.log("pageYOffset: " + window.pageXOffset);
+    console.log("scrollTop: " + document.documentElement.scrollTop);
+
     var nodesName = ['HEADER', 'SECTION', 'ASIDE'];
     var idName = ['supply_scrolly', 'demand_scrolly'];
     
@@ -25,7 +48,15 @@ function scrollPage(e) {
         scrollInnerHeight = scrollableEl.innerHeight();
         scrollHeight = scrollableEl[0].scrollHeight;
     }
-    if (e.deltaY < 0) {
+
+    var touchDirection;
+    if(touchStartY != null && touchEndY != null){
+        // touchDirection < 0; --> endPoint above startPoint: page scroll down!
+        // touchDirection >= 0; --> endPoint beneath startPoint: page scroll up!
+        touchDirection = touchEndY - touchStartY;
+    }
+
+    if (e.deltaY < 0 || touchDirection >= 0) {
         // scroll up
         if (prev != null && nodesName.includes(prev.nodeName)) {
             if (cur.nodeName !== scrollableSection) {
@@ -47,7 +78,7 @@ function scrollPage(e) {
         // console.log("scrollInnerHeight " + scrollInnerHeight);
         // console.log("scrollHeight " + scrollHeight);
 
-    } else if (e.deltaY > 0) {
+    } else if (e.deltaY > 0 || touchDirection < 0) {
         // scroll down
         if (next != null && nodesName.includes(next.nodeName)) {
 
@@ -74,11 +105,11 @@ function scrollPage(e) {
 }
 
 function runAfter() {
-    console.log('after');
+    //console.log('after');
 }
 
 function runBefore() {
-    console.log('before');
+    //console.log('before');
 }
 
 function verticalScroll(destination) {

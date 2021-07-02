@@ -3,15 +3,15 @@
 
 const helper = {
     getDelta(event) {
-        if(event.wheelDelta) {
-            return event.wheelDelta;
+        if (event.deltaY) {
+            return event.deltaY;
         } else {
             return -event.detail;
         }
     },
     throttle(method, delay, context) {
         let inThrottle = false;
-        return function() {
+        return function () {
             if (!inThrottle) {
                 inThrottle = true;
                 method.apply(context, arguments);
@@ -23,7 +23,7 @@ const helper = {
     },
     debounce(method, delay, context) {
         let inDebounce;
-        return function() {
+        return function () {
             clearTimeout(method.inDebounce);
             inDebounce = setTimeout(() => {
                 method.apply(context, arguments);
@@ -32,12 +32,13 @@ const helper = {
     }
 }
 class ScrollPages {
-    constructor(currentPageNumber, totalPageNumber, pages){
+    constructor(currentPageNumber, totalPageNumber, pages) {
         this.currentPageNumber = currentPageNumber;
         this.totalPageNumber = totalPageNumber;
         this.pages = pages;
         this.viewHeight = document.documentElement.clientHeight;
     }
+
     mouseScroll(event) {
         let delta = helper.getDelta(event);
         if (delta < 0) {
@@ -46,8 +47,9 @@ class ScrollPages {
             this.scrollUp();
         }
     }
+    
     scrollDown() {
-        if (this.currentPageNumber !== this.totalPageNumber){
+        if (this.currentPageNumber !== this.totalPageNumber) {
             this.pages.style.top = (-this.viewHeight * this.currentPageNumber) + 'px';
             this.currentPageNumber++;
             this.updateNav();
@@ -75,7 +77,7 @@ class ScrollPages {
         const pageNav = document.createElement('div');
         pageNav.className = 'nav-dot-container';
         this.pages.appendChild(pageNav);
-        for(let i=0; i < this.totalPageNumber; i++) {
+        for (let i = 0; i < this.totalPageNumber; i++) {
             pageNav.innerHTML += '<p class="nav-dot"><span></span></p>';
         }
         const navDots = document.getElementsByClassName('nav-dot');
@@ -83,7 +85,7 @@ class ScrollPages {
         this.navDots[0].classList.add('dot-active');
         this.navDots.forEach((e, index) => {
             e.addEventListener('click', event => {
-                this.scrollTo(index+1);
+                this.scrollTo(index + 1);
                 this.navDots.forEach(e => {
                     e.classList.remove('dot-active');
                 });
@@ -95,12 +97,12 @@ class ScrollPages {
         this.navDots.forEach(e => {
             e.classList.remove('dot-active');
         });
-        this.navDots[this.currentPageNumber-1].classList.add('dot-active');
+        this.navDots[this.currentPageNumber - 1].classList.add('dot-active');
     }
     resize() {
         this.viewHeight = document.documentElement.clientHeight;
         this.pages.style.height = this.viewHeight + 'px';
-        this.pages.style.top = -this.viewHeight * (this.currentPageNumber-1) + 'px';
+        this.pages.style.top = -this.viewHeight * (this.currentPageNumber - 1) + 'px';
     }
     textFadeInOut() {
         const containersDom = document.getElementsByClassName('text-container');
@@ -108,7 +110,7 @@ class ScrollPages {
         textContainers.forEach((e) => {
             e.classList.remove('in-sight');
         });
-        let textContainerInSight = textContainers[this.currentPageNumber-1];
+        let textContainerInSight = textContainers[this.currentPageNumber - 1];
         textContainerInSight.classList.add('in-sight')
     }
     init() {
@@ -141,7 +143,8 @@ class ScrollPages {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    var s = new ScrollPages(1,3,document.getElementById('all-pages'));
+document.addEventListener('DOMContentLoaded', function () {
+    var s = new ScrollPages(1, 3, document.getElementById('all-pages'));
     s.init();
+    
 })

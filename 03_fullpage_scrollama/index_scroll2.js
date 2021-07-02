@@ -22,7 +22,7 @@ const image_svg2 = {
 
 $('.img_svg_demand').attr("src", "../images2/svgChart/" + image_svg2[cur_index2] + ".svg");
 
-document.getElementById("demand_scrolly").addEventListener('wheel', getIndex2);
+document.getElementById("demand_scrolly").addEventListener('wheel', getIndex2, {passive: true});
 
 function getIndex2(e) {
 
