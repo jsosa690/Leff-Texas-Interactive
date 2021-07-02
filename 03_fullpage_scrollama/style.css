@@ -3,7 +3,7 @@ body {
 	padding: 0;
 	color: #FFF;
 	font-family: "Montserrat", sans-serif;
-	overflow: hidden;
+	/* overflow: hidden; */
 }
 
 a {
