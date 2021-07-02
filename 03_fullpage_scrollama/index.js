@@ -3,6 +3,7 @@ document.querySelector(".main").addEventListener('mousewheel', scrollPage);
 document.querySelector(".main").addEventListener('DOMMouseScroll', scrollPage);
 document.querySelector(".main").addEventListener('onmousewheel', scrollPage);
 document.querySelector(".main").addEventListener('MozMousePixelScroll', scrollPage);
+document.querySelector(".main").addEventListener('touchmove', scrollPage);
 
 function scrollPage(e) {
     var nodesName = ['HEADER', 'SECTION', 'ASIDE'];
