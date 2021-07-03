@@ -1,11 +1,12 @@
 var touchStartY, touchEndY;
-
+var scrollSpeed = 500;
 
 
 document.querySelector(".main").addEventListener('wheel', scrollPage, {capture: false, passive: false});
 document.querySelector(".main").addEventListener('touchstart', getTouchStartY, {capture: false, passive: false});
 document.querySelector(".main").addEventListener('touchend', getTouchEndY, {capture: false, passive: false});
 document.querySelector(".main").addEventListener('touchend', scrollPage, {capture: false, passive: false});
+document.querySelector(".main").addEventListener('touchmove', event => { event.preventDefault();}, {capture: false, passive: false});
 // document.querySelector(".main").addEventListener('mousewheel', scrollPage);
 // document.querySelector(".main").addEventListener('DOMMouseScroll', scrollPage);
 // document.querySelector(".main").addEventListener('onmousewheel', scrollPage);
@@ -20,14 +21,6 @@ function getTouchEndY(e){
 }
 
 function scrollPage(e) {
-    console.log("deltaY: " + e.deltaY);
-    console.log("deltaMode: " + e.deltaMode);
-    console.log("wheelDelta: " + e.wheelDelta);
-    console.log("wheelDeltaX: " + e.wheelDeltaX);
-    console.log("wheelDeltaY: " + e.wheelDeltaY);
-    console.log("detail: " + e.detail);
-    console.log("pageYOffset: " + window.pageXOffset);
-    console.log("scrollTop: " + document.documentElement.scrollTop);
 
     var nodesName = ['HEADER', 'SECTION', 'ASIDE'];
     var idName = ['supply_scrolly', 'demand_scrolly'];
@@ -57,7 +50,7 @@ function scrollPage(e) {
     }
 
     if (e.deltaY < 0 || touchDirection >= 0) {
-        // scroll up
+        // wheel scroll up --> page scroll down
         if (prev != null && nodesName.includes(prev.nodeName)) {
             if (cur.nodeName !== scrollableSection) {
                 fullpageScrollUp();
@@ -68,7 +61,7 @@ function scrollPage(e) {
         }
         function fullpageScrollUp() {
             e.preventDefault();
-            verticalScroll(prev, 1000, 'easeInOutCubic');
+            verticalScroll(prev, scrollSpeed * 0.7, 'easeInOutCubic');
             e.target.closest(nodesName).classList.remove('active')
             prev.classList.add('active')
         }
@@ -79,7 +72,7 @@ function scrollPage(e) {
         // console.log("scrollHeight " + scrollHeight);
 
     } else if (e.deltaY > 0 || touchDirection < 0) {
-        // scroll down
+        // wheel scroll down --> page scroll up
         if (next != null && nodesName.includes(next.nodeName)) {
 
             if (cur.nodeName !== scrollableSection) {
@@ -91,7 +84,7 @@ function scrollPage(e) {
         }
         function fullpageScrollDown() {
             e.preventDefault();
-            verticalScroll(next, 1000, 'easeInOutQuad', runAfter);
+            verticalScroll(next, scrollSpeed, 'easeInOutQuad', runAfter);
             e.target.closest(nodesName).classList.remove('active');
             next.classList.add('active');
         }
