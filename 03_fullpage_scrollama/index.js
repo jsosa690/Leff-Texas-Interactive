@@ -2,11 +2,13 @@ var touchStartY, touchEndY;
 var scrollSpeed = 500;
 
 
-document.querySelector(".main").addEventListener('wheel', scrollPage, {capture: false, passive: false});
-document.querySelector(".main").addEventListener('touchstart', getTouchStartY, {capture: false, passive: false});
-document.querySelector(".main").addEventListener('touchend', getTouchEndY, {capture: false, passive: false});
-document.querySelector(".main").addEventListener('touchend', scrollPage, {capture: false, passive: false});
-document.querySelector(".main").addEventListener('touchmove', event => { event.preventDefault();}, {capture: false, passive: false});
+const pageContainer = document.querySelector(".allPages");
+
+pageContainer.addEventListener('wheel', scrollPage, {capture: false, passive: false});
+pageContainer.addEventListener('touchstart', getTouchStartY, {capture: false, passive: false});
+pageContainer.addEventListener('touchend', getTouchEndY, {capture: false, passive: false});
+pageContainer.addEventListener('touchend', scrollPage, {capture: false, passive: false});
+pageContainer.addEventListener('touchmove', event => { event.preventDefault();}, {capture: false, passive: false});
 // document.querySelector(".main").addEventListener('mousewheel', scrollPage);
 // document.querySelector(".main").addEventListener('DOMMouseScroll', scrollPage);
 // document.querySelector(".main").addEventListener('onmousewheel', scrollPage);
@@ -154,3 +156,28 @@ function verticalScroll(destination) {
 
     scroll();
 }
+
+function createNav(){
+    const pageNav = document.createElement('div');
+    pageNav.className = 'nav-dot-container';
+    pageContainer.appendChild(pageNav);
+    for(let i = 0; i < 10; i++ ){
+        pageNav.innerHTML += '<p class="nav-dot"><span></span></p>';
+    }
+    var navDots = document.getElementsByClassName('nav-dot');
+    navDots = Array.prototype.slice.call(navDots);
+    navDots[0].classList.add('dot-active');
+    navDots.forEach((e, index) => {
+        e.addEventListener('click', event => {
+
+            //scrollTo(index + 1);
+
+            navDots.forEach(e => {
+                e.classList.remove('dot-active');
+            });
+            e.classList.add('dot-active');
+        });
+    });
+
+}
+createNav();

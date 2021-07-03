@@ -1,10 +1,6 @@
 // Implemetion reference: https://juejin.im/post/5aeef41cf265da0ba0630de0
 // Background image from free image website: https://pixabay.com/
 
-
-
-
-
 const helper = {
     getDelta(event) {
         if (event.deltaY) {
@@ -59,7 +55,7 @@ class ScrollPages {
             this.pages.style.top = (-this.viewHeight * this.currentPageNumber) + 'px';
             this.currentPageNumber++;
             this.updateNav();
-            this.textFadeInOut();
+            //this.textFadeInOut();
         }
     }
     scrollUp() {
@@ -67,7 +63,7 @@ class ScrollPages {
             this.pages.style.top = (-this.viewHeight * (this.currentPageNumber - 2)) + 'px';
             this.currentPageNumber--;
             this.updateNav();
-            this.textFadeInOut();
+            //this.textFadeInOut();
         }
     }
     scrollTo(targetPageNumber) {
@@ -110,21 +106,21 @@ class ScrollPages {
         this.pages.style.height = this.viewHeight + 'px';
         this.pages.style.top = -this.viewHeight * (this.currentPageNumber - 1) + 'px';
     }
-    textFadeInOut() {
-        const containersDom = document.getElementsByClassName('text-container');
-        let textContainers = Array.prototype.slice.call(containersDom);
-        textContainers.forEach((e) => {
-            e.classList.remove('in-sight');
-        });
-        let textContainerInSight = textContainers[this.currentPageNumber - 1];
-        textContainerInSight.classList.add('in-sight')
-    }
+    // textFadeInOut() {
+    //     const containersDom = document.getElementsByClassName('text-container');
+    //     let textContainers = Array.prototype.slice.call(containersDom);
+    //     textContainers.forEach((e) => {
+    //         e.classList.remove('in-sight');
+    //     });
+    //     let textContainerInSight = textContainers[this.currentPageNumber - 1];
+    //     textContainerInSight.classList.add('in-sight')
+    // }
     init() {
         let handleMouseWheel = helper.throttle(this.mouseScroll, 500, this);
         let handleResize = helper.debounce(this.resize, 500, this);
         this.pages.style.height = this.viewHeight + 'px';
         this.createNav();
-        this.textFadeInOut();
+        //this.textFadeInOut();
         if (navigator.userAgent.toLowerCase().indexOf('firefox') === -1) {
             document.addEventListener('wheel', handleMouseWheel);
         } else {
@@ -150,7 +146,7 @@ class ScrollPages {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    var s = new ScrollPages(1, 3, document.getElementById('all-pages'));
+    var s = new ScrollPages(1, 9, document.getElementById('all-pages'));
     s.init();
     
 })
