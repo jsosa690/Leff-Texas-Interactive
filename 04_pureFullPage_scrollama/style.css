@@ -66,47 +66,47 @@ aside .container {
     display: grid;
     background:url(../images2/bg/00.png)
                center / cover;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
 }
 #all-pages .page:nth-child(2){
     background:url(../images2/bg/01.png)
                center / cover;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
 }
 #all-pages .page:nth-child(3){
     background:url(../images2/bg/02.png)
                center / cover;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
 }
 #all-pages .page:nth-child(4){
     background:url(../images2/bg/03.png)
                center / cover;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
 }
 #all-pages .page:nth-child(5){
     background:url()
                center / cover;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
 }
 #all-pages .page:nth-child(6){
     background:url(../images2/bg/04.png)
                center / cover;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
 }
 #all-pages .page:nth-child(7){
     background:url()
                center / cover;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
 }
 #all-pages .page:nth-child(8){
     background:url(../images2/bg/05.png)
                center / cover;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
 }
 #all-pages .page:nth-child(9){
     background:url(../images2/bg/05.png)
                center / cover;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
 }
 
 .container{
