@@ -366,10 +366,11 @@ class ScrollPages {
         document.addEventListener('touchend', (event) => {
             let endY = event.changedTouches[0].pageY;
             if (this.startY - endY < 0) {
-                this.navScrollUp();
+                this.navScrollDown();
             }
             if (this.startY - endY > 0) {
-                this.navScrollDown();
+                this.navScrollUp();
+                
             }
         });
         document.addEventListener('touchmove', (event) => {
