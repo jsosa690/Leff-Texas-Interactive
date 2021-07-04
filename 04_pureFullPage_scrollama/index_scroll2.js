@@ -41,9 +41,9 @@ function getIndex2(e) {
 
   var i2 = Math.floor((window.innerHeight - scrollTop2 - window.innerHeight * 0.1)/ window.innerHeight);
 
-  console.log("________________________")
-  console.log(downAndUp);
-  console.log(i2);
+  //console.log("________________________")
+  //console.log(downAndUp);
+  //console.log(i2);
 
 if(index2.includes(i2)){
   cur_index2 = i2;
@@ -74,9 +74,9 @@ prev_cur_index2 = cur_index2;
 // }
   
 
-  console.log("cur_index: " + cur_index2);
-  console.log(window.innerHeight);
-  console.log(scrollTop2);
+  //console.log("cur_index: " + cur_index2);
+  //console.log(window.innerHeight);
+  //console.log(scrollTop2);
 }
 
 // initialize the scrollama

@@ -2,7 +2,7 @@ var touchStartY, touchEndY;
 var scrollSpeed = 500;
 
 
-const pageContainer = document.querySelector(".allPages");
+const pageContainer = document.querySelector(".main");
 
 pageContainer.addEventListener('wheel', scrollPage, {capture: false, passive: false});
 pageContainer.addEventListener('touchstart', getTouchStartY, {capture: false, passive: false});
@@ -130,6 +130,7 @@ function verticalScroll(destination) {
     var destinationOffset = typeof destination === 'number' ? destination : destination.offsetTop;
     var destinationOffsetToScroll = Math.round(documentHeight - destinationOffset < windowHeight ? documentHeight - windowHeight : destinationOffset);
 
+    console.log(documentHeight);
     if ('requestAnimationFrame' in window === false) {
         window.scroll(0, destinationOffsetToScroll);
         if (callback) {
@@ -144,7 +145,7 @@ function verticalScroll(destination) {
         var timeFunction = easings[easing](time);
 
         window.scroll(0, Math.ceil(timeFunction * (destinationOffsetToScroll - start) + start));
-
+        console.log("vertical scroll");
         if (window.pageYOffset === destinationOffsetToScroll) {
             if (callback) {
                 callback();

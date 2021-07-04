@@ -15,7 +15,6 @@ const image_svg = {
 }
 
 
-
 $('.img_svg_supply').attr("src", "../images2/svgChart/" + image_svg[cur_index] + ".svg");
 
 document.getElementById("supply_scrolly").addEventListener('wheel', getIndex, {passive: true});
@@ -56,9 +55,9 @@ prev_cur_index = cur_index;
 //$('.img_svg_supply').attr("src", "../images2/svgChart/" + image_svg[cur_index] + ".svg");
 
 
-  console.log("cur_index: " + cur_index);
-  console.log(window.innerHeight);
-  console.log(scrollTop);
+  //console.log("cur_index: " + cur_index);
+  //console.log(window.innerHeight);
+  //console.log(scrollTop);
 }
 
 // initialize the scrollama
@@ -87,9 +86,9 @@ function handleStepEnter(response) {
   if (downAndUp != null) {
     response.direction = downAndUp;
   }
-  console.log("responseIndex " + response.index);
-  console.log("responseDirection " + response.direction);
-  console.log(response);
+  //console.log("responseIndex " + response.index);
+  //console.log("responseDirection " + response.direction);
+  //console.log(response);
   //  console.log(response.direction);
   // response = { element, direction, index }
   // add color to current step only

@@ -80,7 +80,8 @@ class ScrollPages {
         let delta = utils.getDelta(e);
         if (delta < 0) {
             this.navScrollDown();
-            //this.scrollDown(e);
+            //this.scrollUp(e);
+            
             console.log('scroll down!');
             console.log(this.nextContainer);
             console.log(this.currentPageNumber);
@@ -88,7 +89,7 @@ class ScrollPages {
 
         } else {
             this.navScrollUp();
-            //this.scrollUp(e);
+            //this.scrollDown(e);
             console.log('scroll up!');
             console.log(this.prevContainer);
             console.log(this.currentPageNumber);
