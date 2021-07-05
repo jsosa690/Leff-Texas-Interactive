@@ -11,11 +11,15 @@ const image_svg = {
   0: "supply_01",
   1: "supply_02"
 }
-console.log(window.innerWidth);
+
 //set original <article></article> position
 var scrollEl_sup = $('#sup_step');
 var singleStepHeight_sup = d3.select('#sup_step_0').node().getBoundingClientRect().height;
-if(window.innerWidth <= 600){
+
+var windowWidth = Math.max(document.body.scrollWidth, document.body.offsetWidth, document.documentElement.clientWidth, document.documentElement.scrollWidth, document.documentElement.offsetWidth);
+console.log(windowWidth);
+
+if( windowWidth <= 600){
   scrollEl_sup.css('margin-top', -(window.innerHeight + singleStepHeight_sup)/3 + 'px');
 } else {
   scrollEl_sup.css('margin-top', -(window.innerHeight + singleStepHeight_sup)/2 + 'px');
@@ -39,7 +43,7 @@ function getIndex(e) {
   var scrollEl_sup = $('#sup_step');
   var scrollTop_sup = scrollEl_sup.position().top - 20;
   var index = [0, 1];
-  if(window.innerWidth <= 600){
+  if(windowWidth <= 600){
     var i = Math.floor((window.innerHeight - scrollTop_sup + window.innerHeight/3)/ window.innerHeight);
   } else {
     var i = Math.floor((window.innerHeight - scrollTop_sup + window.innerHeight/2)/ window.innerHeight);

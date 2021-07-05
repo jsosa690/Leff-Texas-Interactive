@@ -22,7 +22,9 @@ const image_svg2 = {
 var scrollEl_dem = $('#dem_step');
 var singleStepHeight_dem = d3.select('#dem_step_0').node().getBoundingClientRect().height;
 
-if(window.innerWidth <= 600){
+var windowWidth = Math.max(document.body.scrollWidth, document.body.offsetWidth, document.documentElement.clientWidth, document.documentElement.scrollWidth, document.documentElement.offsetWidth);
+
+if(windowWidth <= 600){
   scrollEl_dem.css('margin-top', -(window.innerHeight + singleStepHeight_dem) / 3.5 + 'px');
 } else {
   scrollEl_dem.css('margin-top', -(window.innerHeight + singleStepHeight_dem) / 2 + 'px');
@@ -50,8 +52,8 @@ function getIndex2(e) {
   var scrollEl_dem = $('#dem_step');
   var scrollTop_dem = scrollEl_dem.position().top - 20;
   var index2 = [0, 1, 2, 3, 4];
-  if(window.innerWidth <= 600){
-    var i2 = Math.floor((window.innerHeight - scrollTop_dem + window.innerHeight / 2.5) / window.innerHeight);
+  if(windowWidth <= 600){
+    var i2 = Math.floor((window.innerHeight - scrollTop_dem + window.innerHeight / 2.2) / window.innerHeight);
   } else {
     var i2 = Math.floor((window.innerHeight - scrollTop_dem + window.innerHeight / 2) / window.innerHeight);
   }
