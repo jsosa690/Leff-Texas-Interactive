@@ -45,7 +45,7 @@ body{
     margin:0 40px;
     opacity:0;
     visibility:visible;
-    transform:translateY(-50%);
+    /* transform:translateY(-50%); */
     transition:all 3s ease;
 }
 .text-container.in-sight{
