@@ -1,9 +1,3 @@
-// Implemetion reference: https://juejin.im/post/5aeef41cf265da0ba0630de0
-// Background image from free image website: https://pixabay.com/
-
-
-
-
 
 const helper = {
     getDelta(event) {
@@ -47,10 +41,10 @@ class ScrollPages {
         let delta = helper.getDelta(event);
         if (delta < 0) {
             this.scrollUp();
-            console.log('scroll down!');
+            //console.log('scroll down!');
         } else {
             this.scrollDown();
-            console.log('scroll up!');
+            //console.log('scroll up!');
         }
     }
     
