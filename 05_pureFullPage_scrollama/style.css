@@ -21,6 +21,20 @@ body{
     height:100%;
     width:100%;
 }
+
+aside {
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+aside .container {
+	position: relative;
+    overflow-y: scroll;
+	height: 100%;
+}
+
+
+
 #all-pages .page:nth-child(1){
     display: grid;
     background:url(../images2/bg/00.png)
