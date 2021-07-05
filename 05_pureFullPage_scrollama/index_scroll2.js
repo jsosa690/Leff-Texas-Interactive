@@ -23,27 +23,29 @@ var scrollEl_dem = $('#dem_step');
 var singleStepHeight_dem = d3.select('#dem_step_0').node().getBoundingClientRect().height;
 scrollEl_dem.css('margin-top', -(window.innerHeight + singleStepHeight_dem) / 2 + 'px');
 
+//set original chart to the first chart
 $('.img_svg_demand').attr("src", "../images2/svgChart/" + image_svg2[cur_index2] + ".svg");
+
+//add event listener to both pc and mobile devices
 document.getElementById("demand_scrolly").addEventListener('wheel', getIndex2, {
+  passive: true
+});
+document.getElementById("demand_scrolly").addEventListener('touchend', getIndex2, {
   passive: true
 });
 
 function getIndex2(e) {
-
   if (e.deltaY < 0) {
     downAndUp = "down";
 
   } else if (e.deltaY > 0) {
     downAndUp = "up";
   }
-
   var scrollEl_dem = $('#dem_step');
   var scrollTop_dem = scrollEl_dem.position().top - 20;
   var index2 = [0, 1, 2, 3, 4];
   var i2 = Math.floor((window.innerHeight - scrollTop_dem + window.innerHeight / 2) / window.innerHeight);
-
-
-  console.log(scrollTop_dem);
+  //console.log(scrollTop_dem);
   if (index2.includes(i2)) {
     cur_index2 = i2;
     if (prev_cur_index2 !== cur_index2) {

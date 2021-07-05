@@ -1,5 +1,3 @@
-// using d3 for convenience
-
 let scrolly = d3.select("#scrollableSection_supply");
 let figure = scrolly.select("figure");
 let charts = figure.select("#supplyChart");
@@ -14,12 +12,17 @@ const image_svg = {
   1: "supply_02"
 }
 
+//set original <article></article> position
 var scrollEl_sup = $('#sup_step');
 var singleStepHeight_sup = d3.select('#sup_step_0').node().getBoundingClientRect().height;
 scrollEl_sup.css('margin-top', -(window.innerHeight + singleStepHeight_sup)/2 + 'px');
 
+//set original chart to the first chart
 $('.img_svg_supply').attr("src", "../images2/svgChart/" + image_svg[cur_index] + ".svg");
+
+//add event listener to both pc and mobile devices
 document.getElementById("supply_scrolly").addEventListener('wheel', getIndex, {passive: true});
+document.getElementById("supply_scrolly").addEventListener('touchend', getIndex, {passive: true});
 
 function getIndex(e) {
   if (e.deltaY < 0) {
@@ -32,11 +35,6 @@ function getIndex(e) {
   var scrollTop_sup = scrollEl_sup.position().top - 20;
   var index = [0, 1];
   var i = Math.floor((window.innerHeight - scrollTop_sup + window.innerHeight/2)/ window.innerHeight);
-
-  console.log("________________________")
-  console.log(downAndUp);
-  console.log(i);
-  console.log(scrollTop_sup);
 
 if(index.includes(i)){
   cur_index = i;
