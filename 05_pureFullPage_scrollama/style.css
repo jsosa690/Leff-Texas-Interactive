@@ -22,16 +22,16 @@ body{
     width:100%;
 }
 
-aside {
+/* aside {
 	background-size: cover;
 	background-attachment: fixed;
-}
+} */
 
-aside .container {
+/* aside .container {
 	position: relative;
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
 	height: 100%;
-}
+} */
 
 
 
