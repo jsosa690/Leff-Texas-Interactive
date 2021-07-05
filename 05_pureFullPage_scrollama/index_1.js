@@ -46,36 +46,104 @@ class ScrollPages {
     mouseScroll(event) {
         let delta = helper.getDelta(event);
         if (delta < 0) {
-            this.scrollUp();
+            this.scrollUp(event);
             console.log('scroll down!');
         } else {
-            this.scrollDown();
+            this.scrollDown(event);
             console.log('scroll up!');
         }
     }
+
+    getContainers(e) {
+        let nodesName = ['HEADER', 'SECTION', 'ASIDE'];
+        this.nodesName = Array.prototype.slice.call(nodesName);
+
+        if (this.nodesName.includes(e.target.nodeName)) {
+
+                this.curContainer = e.target;
+        } else {
+
+                this.curContainer = e.target.closest(this.nodesName);
+        }
+        console.log("get the container!");
+    }
+
+    getScrollableEl() {
+
+        const idName = ['supply_scrolly', 'demand_scrolly'];
+        const scrollableEls = [$('#scrollableSection_supply'), $('#scrollableSection_demand')];
+        let index = idName.indexOf(this.curContainer.id);
+        let scrollableEl = scrollableEls[index];
+        //console.log(scrollableEl);
+        this.scrollableSection = this.nodesName[2];
+        if (scrollableEl != null) {
+            this.scrollTop = scrollableEl.scrollTop();
+            this.scrollInnerHeight = scrollableEl.innerHeight();
+            this.scrollHeight = scrollableEl[0].scrollHeight;
+        }
+    }
     
-    scrollDown() {
-        if (this.currentPageNumber !== this.totalPageNumber) {
-            this.pages.style.top = (-this.viewHeight * this.currentPageNumber) + 'px';
-            this.currentPageNumber++;
-            this.updateNav();
-            this.textFadeInOut();
+    scrollDown(event) {
+        if (event.type === 'wheel' || event.type == 'DOMMouseScroll') {
+            this.getContainers(event);
+            this.getScrollableEl();
+
+            if (this.currentPageNumber !== this.totalPageNumber) {
+                if (this.curContainer.nodeName !== this.scrollableSection) {
+                    this.pages.style.top = (-this.viewHeight * this.currentPageNumber) + 'px';
+                    this.currentPageNumber++;
+                    this.updateNav();
+                    this.textFadeInOut();
+                } else if (this.curContainer.nodeName === this.scrollableSection && this.scrollTop + this.scrollInnerHeight >= this.scrollHeight) {
+                    this.pages.style.top = (-this.viewHeight * this.currentPageNumber) + 'px';
+                    this.currentPageNumber++;
+                    this.updateNav();
+                    this.textFadeInOut();
+                }
+            }
+        } else if (event.type === 'click') {
+            //console.log("nav-dot is clicked");
+            if (this.currentPageNumber !== this.totalPageNumber) {
+                this.pages.style.top = (-this.viewHeight * this.currentPageNumber) + 'px';
+                this.currentPageNumber++;
+                this.updateNav();
+                this.textFadeInOut();
+            }
         }
     }
-    scrollUp() {
-        if (this.currentPageNumber !== 1) {
-            this.pages.style.top = (-this.viewHeight * (this.currentPageNumber - 2)) + 'px';
-            this.currentPageNumber--;
-            this.updateNav();
-            this.textFadeInOut();
+    scrollUp(event) {
+        if (event.type === 'wheel' || event.type == 'DOMMouseScroll') {
+            this.getContainers(event);
+            this.getScrollableEl();
+
+            if (this.currentPageNumber !== 1) {
+                if (this.curContainer.nodeName !== this.scrollableSection) {
+                    this.pages.style.top = (-this.viewHeight * (this.currentPageNumber - 2)) + 'px';
+                    this.currentPageNumber--;
+                    this.updateNav();
+                    this.textFadeInOut();
+                } else if (this.curContainer.nodeName === this.scrollableSection && this.scrollTop <= 0) {
+                    this.pages.style.top = (-this.viewHeight * (this.currentPageNumber - 2)) + 'px';
+                    this.currentPageNumber--;
+                    this.updateNav();
+                }
+            }
+        } else if (event.type === 'click') {
+            console.log("nav-dot is clicked");
+            if (this.currentPageNumber !== 1) {
+                this.pages.style.top = (-this.viewHeight * (this.currentPageNumber - 2)) + 'px';
+                this.currentPageNumber--;
+                this.updateNav();
+                this.textFadeInOut();
+            }
         }
     }
-    scrollTo(targetPageNumber) {
+    scrollTo(targetPageNumber, event) {
         while (this.currentPageNumber !== targetPageNumber) {
             if (this.currentPageNumber > targetPageNumber) {
-                this.scrollUp();
+                this.scrollUp(event);
             } else {
-                this.scrollDown();
+                this.scrollDown(event);
             }
         }
     }
@@ -91,7 +159,7 @@ class ScrollPages {
         this.navDots[0].classList.add('dot-active');
         this.navDots.forEach((e, index) => {
             e.addEventListener('click', event => {
-                this.scrollTo(index + 1);
+                this.scrollTo(index + 1, event);
                 this.navDots.forEach(e => {
                     e.classList.remove('dot-active');
                 });
