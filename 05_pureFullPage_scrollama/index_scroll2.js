@@ -21,7 +21,13 @@ const image_svg2 = {
 //set original <article></article> position
 var scrollEl_dem = $('#dem_step');
 var singleStepHeight_dem = d3.select('#dem_step_0').node().getBoundingClientRect().height;
-scrollEl_dem.css('margin-top', -(window.innerHeight + singleStepHeight_dem) / 2 + 'px');
+
+if(window.innerWidth <= 600){
+  scrollEl_dem.css('margin-top', -(window.innerHeight + singleStepHeight_dem) / 3.5 + 'px');
+} else {
+  scrollEl_dem.css('margin-top', -(window.innerHeight + singleStepHeight_dem) / 2 + 'px');
+}
+
 
 //set original chart to the first chart
 $('.img_svg_demand').attr("src", "../images2/svgChart/" + image_svg2[cur_index2] + ".svg");
@@ -44,7 +50,12 @@ function getIndex2(e) {
   var scrollEl_dem = $('#dem_step');
   var scrollTop_dem = scrollEl_dem.position().top - 20;
   var index2 = [0, 1, 2, 3, 4];
-  var i2 = Math.floor((window.innerHeight - scrollTop_dem + window.innerHeight / 2) / window.innerHeight);
+  if(window.innerWidth <= 600){
+    var i2 = Math.floor((window.innerHeight - scrollTop_dem + window.innerHeight / 2.5) / window.innerHeight);
+  } else {
+    var i2 = Math.floor((window.innerHeight - scrollTop_dem + window.innerHeight / 2) / window.innerHeight);
+  }
+  
   //console.log(scrollTop_dem);
   if (index2.includes(i2)) {
     cur_index2 = i2;
