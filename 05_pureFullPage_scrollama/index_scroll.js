@@ -14,48 +14,42 @@ const image_svg = {
   1: "supply_02"
 }
 
+var scrollEl_sup = $('#sup_step');
+var singleStepHeight_sup = d3.select('#sup_step_0').node().getBoundingClientRect().height;
+scrollEl_sup.css('margin-top', -(window.innerHeight + singleStepHeight_sup)/2 + 'px');
 
 $('.img_svg_supply').attr("src", "../images2/svgChart/" + image_svg[cur_index] + ".svg");
 document.getElementById("supply_scrolly").addEventListener('wheel', getIndex, {passive: true});
-function getIndex(e) {
 
+function getIndex(e) {
   if (e.deltaY < 0) {
     downAndUp = "down";
   } else if (e.deltaY > 0) {
-    downAndUp = "up";
+    downAndUp = "up"; 
   }
-  // console.log(e.deltaY);
-  
- 
-  var scrollEl = $('#sup_step');
-  var scrollTop = scrollEl.position().top - 20;
-  
-  var index = [0, 1];
 
-  var i = Math.floor((window.innerHeight - scrollTop)/ window.innerHeight);
+  var scrollEl_sup = $('#sup_step');
+  var scrollTop_sup = scrollEl_sup.position().top - 20;
+  var index = [0, 1];
+  var i = Math.floor((window.innerHeight - scrollTop_sup + window.innerHeight/2)/ window.innerHeight);
 
   console.log("________________________")
   console.log(downAndUp);
   console.log(i);
+  console.log(scrollTop_sup);
 
 if(index.includes(i)){
   cur_index = i;
   if(prev_cur_index !== cur_index){
-    $('.img_svg_supply').fadeTo(500,0.30, function() {
-      $('.img_svg_supply').attr("src", "../images2/svgChart/" + image_svg[cur_index] + ".svg");
-    }).fadeTo(1000,1);
+    // $('.img_svg_supply').fadeTo(500,0.30, function() {
+    //   $('.img_svg_supply').attr("src", "../images2/svgChart/" + image_svg[cur_index] + ".svg");
+    // }).fadeTo(1000,1);
+    $('.img_svg_supply').attr("src", "../images2/svgChart/" + image_svg[cur_index] + ".svg");
   }
 } else {
   cur_index = 0;
 }
 prev_cur_index = cur_index;
-
-//$('.img_svg_supply').attr("src", "../images2/svgChart/" + image_svg[cur_index] + ".svg");
-
-
-  //console.log("cur_index: " + cur_index);
-  //console.log(window.innerHeight);
-  //console.log(scrollTop);
 }
 
 // initialize the scrollama
@@ -84,33 +78,13 @@ function handleStepEnter(response) {
   if (downAndUp != null) {
     response.direction = downAndUp;
   }
-  //console.log("responseIndex " + response.index);
-  //console.log("responseDirection " + response.direction);
-  //console.log(response);
-  //  console.log(response.direction);
-  // response = { element, direction, index }
-  // add color to current step only
+
   step.classed("is-active", function (d, i) {
     return i === response.index;
   });
 
   // update graphic based on step, if the current background image != the previous image
-
   cur_index = response.index;
-  // if (image_png[pre_index] !== image_png[cur_index]){
-  //  $('figure').css("backgroundImage", "url(" + "../images/" + image_png[cur_index] + ".png" + ")")
-  // }
-  // var pre_index = cur_index;
-  // console.log("cur_index:" + cur_index);
-
-  // update the chart based on step
-
-  if (cur_index != null) {
-    $('.img_svg').attr("src", "../images2/svgChart/" + image_svg[cur_index] + ".svg");
-  } else {
-    $('.img_svg').attr("src", "");
-  }
-
 }
 
 function setupStickyfill() {
@@ -139,6 +113,5 @@ function init() {
   // setup resize event
   window.addEventListener("resize", handleResize);
 }
-
 // kick things off
 init();

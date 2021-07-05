@@ -17,7 +17,7 @@
     position: relative;
     padding: 0;
     /* max-width: 20rem; */
-    margin: 0 auto;
+    margin: auto auto;
   }
 
   figure {
@@ -116,6 +116,7 @@
       padding: 0;
       /* max-width: 20rem; */
       margin: -250px auto;
+      width: 100%;
       /* z-index: -100; */
     }
     
@@ -142,9 +143,8 @@
     }
     .step {
       grid-template-columns: 1fr;
-      width: 25%;
-      min-width: 16rem;
-      margin: 0 auto 2rem auto;
+      min-width: 17rem;
+      margin: 0 auto;
       color: #3b3b3b;
       
       /* background-color: rgba(0, 0, 0, 0.1); */
@@ -155,7 +155,7 @@
     .step p {
       text-align: left;
       padding: 1rem;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       background-color: rgba(255, 255, 255, 0.95);
     }
   }

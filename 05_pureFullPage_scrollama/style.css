@@ -39,22 +39,26 @@ aside .container {
 
 #all-pages .page:nth-child(1) {
     display: grid;
-    background: url(../images2/bg/00.png) center / cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)),
+    url(../images2/bg/00.png) center / cover;
     background-attachment: fixed;
 }
 
 #all-pages .page:nth-child(2) {
-    background: url(../images2/bg/01.png) center / cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
+    url(../images2/bg/01.png) center / cover;
     background-attachment: fixed;
 }
 
 #all-pages .page:nth-child(3) {
-    background: url(../images2/bg/02.png) center / cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
+    url(../images2/bg/02.png) center / cover;
     background-attachment: fixed;
 }
 
 #all-pages .page:nth-child(4) {
-    background: url(../images2/bg/03.png) center / cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
+    url(../images2/bg/03.png) center / cover;
     background-attachment: fixed;
 }
 
@@ -64,7 +68,8 @@ aside .container {
 }
 
 #all-pages .page:nth-child(6) {
-    background: url(../images2/bg/04.png) center / cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url(../images2/bg/04.png) center / cover;
     background-attachment: fixed;
 }
 
@@ -74,12 +79,14 @@ aside .container {
 }
 
 #all-pages .page:nth-child(8) {
-    background: url(../images2/bg/05.png) center / cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
+    url(../images2/bg/05.png) center / cover;
     background-attachment: fixed;
 }
 
 #all-pages .page:nth-child(9) {
-    background: url(../images2/bg/05.png) center / cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
+    url(../images2/bg/05.png) center / cover;
     background-attachment: fixed;
 }
 
@@ -204,14 +211,14 @@ p.headerTip {
 .nav-dot-container {
     position: fixed;
     top: 50%;
-    right: 20px;
+    right: 3%;
     transform: translateY(-50%);
 }
 
 .nav-dot {
     width: 20px;
-    height: 30px;
-    padding: 20px 0px;
+    height: 20px;
+    padding: 5px 5px;
     margin: auto;
 }
 
@@ -220,23 +227,25 @@ p.headerTip {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: white;
+    background: #54AFAB;
     transition: all 200ms ease;
     margin: auto;
+    
 }
 
 .nav-dot span:hover {
     width: 12px;
     height: 12px;
+    background: #EC694B;
+    
 }
 
 .nav-dot.dot-active span {
     width: 15px;
     height: 15px;
+    background: #EC694B;
+    
 }
-
-
-
 
 .mouse {
     position: relative;
@@ -327,7 +336,7 @@ p.headerTip {
     #demand_intro_text,
     #conclusion_1_text,
     #conclusion_2_text {
-        width: 50%;
+        width: 65%;
         position: relative;
         top: 50%;
         left: 50%;
@@ -340,6 +349,8 @@ p.headerTip {
         font-size: 1.3rem;
         text-align: start;
     }
+
+
 }
 
 
