@@ -40,7 +40,13 @@ $('.img_svg_demand').attr("src", "../images2/svgChart/" + image_svg2[cur_index2]
 document.getElementById("demand_scrolly").addEventListener('wheel', getIndex2, {
   passive: true
 });
+document.getElementById("demand_scrolly").addEventListener('touchstart', getIndex2, {
+  passive: true
+});
 document.getElementById("demand_scrolly").addEventListener('touchend', getIndex2, {
+  passive: true
+});
+document.getElementById("demand_scrolly").addEventListener('touchmove', getIndex2, {
   passive: true
 });
 

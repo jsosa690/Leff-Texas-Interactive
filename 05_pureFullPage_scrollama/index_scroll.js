@@ -34,7 +34,9 @@ $('.img_svg_supply').attr("src", "../images2/svgChart/" + image_svg[cur_index] +
 
 //add event listener to both pc and mobile devices
 document.getElementById("supply_scrolly").addEventListener('wheel', getIndex, {passive: true});
+document.getElementById("supply_scrolly").addEventListener('touchstart', getIndex, {passive: true});
 document.getElementById("supply_scrolly").addEventListener('touchend', getIndex, {passive: true});
+document.getElementById("supply_scrolly").addEventListener('touchmove', getIndex, {passive: true});
 
 function getIndex(e) {
   if (e.deltaY < 0) {
