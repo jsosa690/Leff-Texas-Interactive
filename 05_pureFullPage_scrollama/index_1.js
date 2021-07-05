@@ -122,7 +122,7 @@ class ScrollPages {
                 }
             }
         } else if (event.type === 'click') {
-            console.log("nav-dot is clicked");
+            //console.log("nav-dot is clicked");
             if (this.currentPageNumber !== 1) {
                 this.pages.style.top = (-this.viewHeight * (this.currentPageNumber - 2)) + 'px';
                 this.currentPageNumber--;
@@ -207,6 +207,13 @@ class ScrollPages {
             event.preventDefault();
         });
         window.addEventListener('resize', handleResize);
+
+        document.getElementById('backToTop').addEventListener('click', (event) => {
+            this.scrollTo(1, event); //console.log("button got clicked!");
+        });
+        document.getElementById('backToTop').addEventListener('touchstart', (event) => {
+            this.scrollTo(1, event); //console.log("button got clicked!");
+        });
     }
 }
 

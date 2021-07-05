@@ -5,6 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/6520a292d0.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./scrollStyle.css">
@@ -17,13 +20,13 @@
     <div id="all-pages">
       <header class="page active">
         <div class="container">
-          <div id="headerText" >
+          <div id="headerText">
             <h1 class="headerTitle">Here's How the Texas Power Crisis Unfolded</h1>
-            <div class="mouse">
+            <div class="scroll">
               <div>
                 <p class="headerTip">scroll to start</p>
-                <div class="mouse-shape">
-                  <div class="mouse-animation"><span class="scrollArrow" style="font-size: 1.5rem;">
+                <div class="scroll-shape">
+                  <div class="scroll-animation"><span class="scrollArrow" style="font-size: 1.5rem;">
                       <i class="fas fa-chevron-down" aria-hidden="true"></i>
                     </span></div>
                 </div>
@@ -77,19 +80,15 @@
           </figure>
           <article id="sup_step">
             <div class="step" data-step="0">
-              <p id="sup_step_0">Using February 7 as a baseline, the normal gas supply in Texas is coming from production
-                (49%), imports (13%), storage withdrawals(38%).</p>
+              <p id="sup_step_0">Using February 7 as a baseline, the normal gas supply in Texas is coming from <span
+                  class="sup">production
+                  (49%), imports (13%), storage withdrawals(38%).</span></p>
             </div>
             <div class="step" data-step="1">
               <p>On February 15, because of production freeze-off (-20%), import bottlenecks (-9%),
-                storage
-                freeze-offs (-27%), the gas supply in Texas fell by ~56%.</p>
+                storage freeze-offs (-27%), the gas supply in Texas <span class="sup">fell</span> by ~56%.</p>
             </div>
           </article>
-          <!-- <div class="supply_text">
-        <p>On February 15, because of production freeze-off (-20%), import bottlenecks (-9%), storage freeze-offs (-27%), the gas supply in Texas fell by ~56%.</p>
-    </div>
-    <div class="supply_img"><img src="../images2/svgChart/supply_02.svg" alt=""></div> -->
         </div>
       </aside>
       <section class="page">
@@ -108,24 +107,29 @@
           </figure>
           <article id="dem_step">
             <div class="step" data-step="0">
-              <p id="dem_step_0">Nonessential liquefied natural gas (LNG) exports in Texas were cut first, with feed gas
+              <p id="dem_step_0"><span class="dem">Nonessential liquefied natural gas (LNG)</span> exports in Texas were
+                cut first, with feed gas
                 dropping by ~75% from February 7 to February 15, followed by net exports to other
                 states.</p>
             </div>
             <div class="step" data-step="1">
-              <p>Mexico exports were cut by one-third, even before the governor of Texas ordered cuts to
+              <p><span class="dem">Mexico exports</span> were cut by one-third, even before the governor of Texas
+                ordered cuts to
                 exports.</p>
             </div>
             <div class="step" data-step="2">
-              <p>Industrial activity dropped by ~40%, while residential and commercial customers,
+              <p><span class="dem">Industrial activity</span> dropped by ~40%, while <span class="dem">residential and
+                  commercial</span> customers,
                 typically triaged first for gas service, were cut by ~50%.</p>
             </div>
             <div class="step" data-step="3">
-              <p>Facing both freeze-offs and a decline in fuel supply, gas power generation dropped ~40%.
+              <p>Facing both freeze-offs and a decline in fuel supply, gas <span class="dem">power</span> generation
+                dropped ~40%.
               </p>
             </div>
             <div class="step" data-step="4">
-              <p>Finally, the total gas demand on February 15 was 16 bcfd. Even if all power generation
+              <p>Finally, the <span class="dem">total gas demand</span> on February 15 was 16 bcfd. Even if all power
+                generation
                 facilities had been weatherized, Texas supply was likely 6 bcfd short of demand needs.
               </p>
             </div>
@@ -135,10 +139,11 @@
       <section class="page">
         <div id="conlusion_1" class="container">
           <div id="conclusion_1_text">
-            <p>Our analysis shows that even if all power-generation facilities were fully operation, they
-              would
-              not have been able to source enough gas without further cuts to residential and commercial
-              power.</p>
+            <p><span class="dem">Our analysis shows that even if all power-generation facilities were fully operation,
+                they</span>
+              <span class="sup">would not have been able to source enough gas</span><span class="dem"> without further
+                cuts to residential and commercial
+                power.</span></p>
           </div>
         </div>
       </section>
@@ -151,8 +156,15 @@
       </section>
     </div>
   </div>
+  <div id="backToTop">
+      <div class="backToTop_container"><span class="backToTop_arrow">
+        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+      </span></div>
+      <p class="headerTip">back to top</p>
+      
+  </div>
   <script src="https://unpkg.com/d3@5.9.1/dist/d3.min.js"></script>
-  
+
   <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
   <script src="../libs/stickyfill.min.js"></script>
   <script src="../libs/scrollama.min.js"></script>
