@@ -211,9 +211,6 @@ class ScrollPages {
         document.getElementById('backToTop').addEventListener('click', (event) => {
             this.scrollTo(1, event); //console.log("button got clicked!");
         });
-        document.getElementById('backToTop').addEventListener('touchstart', (event) => {
-            this.scrollTo(1, event); //console.log("button got clicked!");
-        });
     }
 }
 
