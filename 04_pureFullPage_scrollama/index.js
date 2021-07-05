@@ -170,7 +170,7 @@ class ScrollPages {
 
     // wheel scroll up --> page scroll down
     navScrollUp(event) {
-        if (event.type === 'wheel' || event.type === 'DOMMouseScroll' || event.type === 'touchstart') {
+        if (event.type === 'wheel' || event.type === 'DOMMouseScroll' || event.type === 'touchend') {
             this.getContainers(event);
             this.getScrollableEl();
 
@@ -202,7 +202,7 @@ class ScrollPages {
     }
     // wheel scroll down --> page scroll up
     navScrollDown(event) {
-        if (event.type === 'wheel' || event.type === 'DOMMouseScroll' || event.type === 'touchstart') {
+        if (event.type === 'wheel' || event.type === 'DOMMouseScroll' || event.type === 'touchend') {
             this.getContainers(event);
             this.getScrollableEl();
 

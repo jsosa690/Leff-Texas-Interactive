@@ -84,7 +84,7 @@ class ScrollPages {
     }
     
     scrollDown(event) {
-        if (event.type === 'wheel' || event.type == 'DOMMouseScroll') {
+        if (event.type === 'wheel' || event.type == 'DOMMouseScroll' || event.type === 'touchend') {
             this.getContainers(event);
             this.getScrollableEl();
 
@@ -112,7 +112,7 @@ class ScrollPages {
         }
     }
     scrollUp(event) {
-        if (event.type === 'wheel' || event.type == 'DOMMouseScroll') {
+        if (event.type === 'wheel' || event.type == 'DOMMouseScroll' || event.type === 'touchend') {
             this.getContainers(event);
             this.getScrollableEl();
 
@@ -204,10 +204,10 @@ class ScrollPages {
         document.addEventListener('touchend', (event) => {
             let endY = event.changedTouches[0].pageY;
             if (this.startY - endY < 0) {
-                this.scrollUp();
+                this.scrollUp(event);
             }
             if (this.startY - endY > 0) {
-                this.scrollDown();
+                this.scrollDown(event);
             }
         });
         document.addEventListener('touchmove', (event) => {
