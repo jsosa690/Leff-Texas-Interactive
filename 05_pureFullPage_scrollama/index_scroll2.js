@@ -24,10 +24,12 @@ var singleStepHeight_dem = d3.select('#dem_step_0').node().getBoundingClientRect
 
 var windowWidth = Math.max(document.body.scrollWidth, document.body.offsetWidth, document.documentElement.clientWidth, document.documentElement.scrollWidth, document.documentElement.offsetWidth);
 
+var windowHeight = Math.min(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
+
 if(windowWidth <= 600){
-  scrollEl_dem.css('margin-top', -(window.innerHeight + singleStepHeight_dem) / 3.5 + 'px');
+  scrollEl_dem.css('margin-top', -(windowHeight + singleStepHeight_dem) / 3.5 + 'px');
 } else {
-  scrollEl_dem.css('margin-top', -(window.innerHeight + singleStepHeight_dem) / 2 + 'px');
+  scrollEl_dem.css('margin-top', -(windowHeight + singleStepHeight_dem) / 2 + 'px');
 }
 
 
@@ -53,9 +55,9 @@ function getIndex2(e) {
   var scrollTop_dem = scrollEl_dem.position().top - 20;
   var index2 = [0, 1, 2, 3, 4];
   if(windowWidth <= 600){
-    var i2 = Math.floor((window.innerHeight - scrollTop_dem + window.innerHeight / 2.2) / window.innerHeight);
+    var i2 = Math.floor((windowHeight - scrollTop_dem + windowHeight / 2.2) / windowHeight);
   } else {
-    var i2 = Math.floor((window.innerHeight - scrollTop_dem + window.innerHeight / 2) / window.innerHeight);
+    var i2 = Math.floor((windowHeight - scrollTop_dem + windowHeight / 2) / windowHeight);
   }
   
   //console.log(scrollTop_dem);

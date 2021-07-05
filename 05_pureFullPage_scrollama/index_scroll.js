@@ -17,12 +17,15 @@ var scrollEl_sup = $('#sup_step');
 var singleStepHeight_sup = d3.select('#sup_step_0').node().getBoundingClientRect().height;
 
 var windowWidth = Math.max(document.body.scrollWidth, document.body.offsetWidth, document.documentElement.clientWidth, document.documentElement.scrollWidth, document.documentElement.offsetWidth);
+var windowHeight = Math.min(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
+
 console.log(windowWidth);
+console.log(windowHeight);
 
 if( windowWidth <= 600){
-  scrollEl_sup.css('margin-top', -(window.innerHeight + singleStepHeight_sup)/3 + 'px');
+  scrollEl_sup.css('margin-top', -(windowHeight + singleStepHeight_sup)/3 + 'px');
 } else {
-  scrollEl_sup.css('margin-top', -(window.innerHeight + singleStepHeight_sup)/2 + 'px');
+  scrollEl_sup.css('margin-top', -(windowHeight + singleStepHeight_sup)/2 + 'px');
 }
 
 
@@ -44,9 +47,9 @@ function getIndex(e) {
   var scrollTop_sup = scrollEl_sup.position().top - 20;
   var index = [0, 1];
   if(windowWidth <= 600){
-    var i = Math.floor((window.innerHeight - scrollTop_sup + window.innerHeight/3)/ window.innerHeight);
+    var i = Math.floor((windowHeight - scrollTop_sup + windowHeight/3)/ windowHeight);
   } else {
-    var i = Math.floor((window.innerHeight - scrollTop_sup + window.innerHeight/2)/ window.innerHeight);
+    var i = Math.floor((windowHeight- scrollTop_sup + windowHeight/2)/ windowHeight);
   }
   
 
