@@ -141,11 +141,8 @@ class ScrollPages {
         });
         window.addEventListener('resize', handleResize);
 
-        document.getElementById('backToTop').addEventListener('click', (event) => {
-            this.scrollTo(1);
-            console.log("button got clicked!");
-        })
-        console.log(document.getElementById('backToTop'));
+        
+        
     }   
 }
 
