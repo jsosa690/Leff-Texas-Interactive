@@ -3,7 +3,7 @@ let figure = scrolly.select("figure");
 let charts = figure.select("#supplyChart");
 let article = scrolly.select("article");
 let step = article.selectAll(".step");
-var offsetHeight = 0.9;
+var offsetHeight = 0.8;
 var downAndUp;
 var prev_cur_index = 0;
 var cur_index = 0;
@@ -30,7 +30,7 @@ if( windowWidth <= 600){
 
 
 //set original chart to the first chart
-$('.img_svg_supply').attr("src", "../images2/svgChart/" + image_svg[cur_index] + ".svg");
+$('.img_svg_supply').attr("src", "../img/svgChart/" + image_svg[cur_index] + ".svg");
 
 //add event listener to both pc and mobile devices
 document.getElementById("supply_scrolly").addEventListener('wheel', getIndex, {passive: true});
@@ -59,9 +59,9 @@ if(index.includes(i)){
   cur_index = i;
   if(prev_cur_index !== cur_index){
     // $('.img_svg_supply').fadeTo(500,0.30, function() {
-    //   $('.img_svg_supply').attr("src", "../images2/svgChart/" + image_svg[cur_index] + ".svg");
+    //   $('.img_svg_supply').attr("src", "../img/svgChart/" + image_svg[cur_index] + ".svg");
     // }).fadeTo(1000,1);
-    $('.img_svg_supply').attr("src", "../images2/svgChart/" + image_svg[cur_index] + ".svg");
+    $('.img_svg_supply').attr("src", "../img/svgChart/" + image_svg[cur_index] + ".svg");
   }
 } else {
   cur_index = 0;
@@ -102,6 +102,7 @@ function handleStepEnter(response) {
 
   // update graphic based on step, if the current background image != the previous image
   cur_index = response.index;
+  $('.img_svg_supply').attr("src", "../img/svgChart/" + image_svg[cur_index] + ".svg");
 }
 
 function setupStickyfill() {

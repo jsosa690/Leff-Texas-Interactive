@@ -5,7 +5,7 @@ let figure2 = scrolly2.select("figure");
 let charts2 = figure2.select("#demandChart");
 let article2 = scrolly2.select("article");
 let step2 = article2.selectAll(".step");
-var offsetHeight2 = 0.9;
+var offsetHeight2 = 0.8;
 var downAndUp;
 var prev_cur_index2 = 0;
 var cur_index2 = 0;
@@ -21,20 +21,16 @@ const image_svg2 = {
 //set original <article></article> position
 var scrollEl_dem = $('#dem_step');
 var singleStepHeight_dem = d3.select('#dem_step_0').node().getBoundingClientRect().height;
-
 var windowWidth = Math.max(document.body.scrollWidth, document.body.offsetWidth, document.documentElement.clientWidth, document.documentElement.scrollWidth, document.documentElement.offsetWidth);
-
 var windowHeight = Math.min(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
-
 if(windowWidth <= 600){
   scrollEl_dem.css('margin-top', -(windowHeight + singleStepHeight_dem) / 3.5 + 'px');
 } else {
   scrollEl_dem.css('margin-top', -(windowHeight + singleStepHeight_dem) / 2 + 'px');
 }
 
-
 //set original chart to the first chart
-$('.img_svg_demand').attr("src", "../images2/svgChart/" + image_svg2[cur_index2] + ".svg");
+$('.img_svg_demand').attr("src", "../img/svgChart/" + image_svg2[cur_index2] + ".svg");
 
 //add event listener to both pc and mobile devices
 document.getElementById("demand_scrolly").addEventListener('wheel', getIndex2, {
@@ -72,9 +68,9 @@ function getIndex2(e) {
     if (prev_cur_index2 !== cur_index2) {
 
       // $('.img_svg_demand').fadeTo(500,0.30, function() {
-      //     $('.img_svg_demand').attr("src", "../images2/svgChart/" + image_svg2[cur_index2] + ".svg");
+      //     $('.img_svg_demand').attr("src", "../img/svgChart/" + image_svg2[cur_index2] + ".svg");
       // }).fadeTo(1000,1);
-      $('.img_svg_demand').attr("src", "../images2/svgChart/" + image_svg2[cur_index2] + ".svg");
+      $('.img_svg_demand').attr("src", "../img/svgChart/" + image_svg2[cur_index2] + ".svg");
     }
   } else {
     cur_index2 = 0;
@@ -109,6 +105,7 @@ function handleStepEnter(response) {
     return i === response.index;
   });
   cur_index2 = response.index;
+  $('.img_svg_demand').attr("src", "../img/svgChart/" + image_svg2[cur_index2] + ".svg");
 }
 
 function setupStickyfill() {
