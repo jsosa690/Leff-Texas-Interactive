@@ -61,25 +61,25 @@ aside .container {
 #all-pages .page:nth-child(1) {
     display: grid;
     background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)),
-        url(../../img/bg/00.png) center / cover;
+        url(../../img/bg/s/00.png) center / cover;
     background-attachment: fixed;
 }
 
 #all-pages .page:nth-child(2) {
     background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
-        url(../../img/bg/01.png) center / cover;
+        url(../../img/bg/s/01.png) center / cover;
     background-attachment: fixed;
 }
 
 #all-pages .page:nth-child(3) {
     background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
-        url(../../img/bg/08.png) center / cover;
+        url(../../img/bg/s/08.png) center / cover;
     background-attachment: fixed;
 }
 
 #all-pages .page:nth-child(4) {
     background: linear-gradient(rgba(0, 0, 0, 0.00), rgba(0, 0, 0, 0.00)),
-        url(../../img/bg/03.png) center / cover;
+        url(../../img/bg/s/03.png) center / cover;
     background-attachment: fixed;
 }
 
@@ -90,7 +90,7 @@ aside .container {
 
 #all-pages .page:nth-child(6) {
     background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-        url(../../img/bg/04.png) center / cover;
+        url(../../img/bg/s/04.png) center / cover;
     background-attachment: fixed;
 }
 
@@ -101,13 +101,13 @@ aside .container {
 
 #all-pages .page:nth-child(8) {
     background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
-        url(../../img/bg/05.png) center / cover;
+        url(../../img/bg/s/05.png) center / cover;
     background-attachment: fixed;
 }
 
 #all-pages .page:nth-child(9) {
     background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
-        url(../../img/bg/05.png) center / cover;
+        url(../../img/bg/s/05.png) center / cover;
     background-attachment: fixed;
 }
 
