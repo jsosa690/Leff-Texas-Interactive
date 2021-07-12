@@ -220,23 +220,26 @@ document.addEventListener('DOMContentLoaded', function () {
  s.init();
 })
 
-document.addEventListener('wheel', function(e){
+document.addEventListener('wheel', FadeInOutBG);
+document.addEventListener('touchstart', FadeInOutBG);
 
-  if(s.currentPageNumber < 4 && e.deltaY > 0){
-    //$('#changingBG').css("backgroundImage", "url(" + "../img/bg/" + (s.currentPageNumber + 1) + ".png" + ")");
-    $("#changingBG").fadeOut(400, function () {
-        $(this).css("background-image", "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(" + "../img/bg/s/" + (s.currentPageNumber) + ".png" + ")");
-        $(this).fadeIn(400);
-    });
+function FadeInOutBG(e){
 
-  } else if(s.currentPageNumber < 5 && s.currentPageNumber > 0 &&  e.deltaY < 0){
-    //$('#changingBG').css("backgroundImage", "url(" + "../img/bg/" + (s.currentPageNumber - 1) + ".png" + ")");
-    $("#changingBG").fadeOut(400, function () {
-        $(this).css("background-image", "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(" + "../img/bg/s/" + (s.currentPageNumber) + ".png" + ")");
-        $(this).fadeIn(400);
-    });
-  }
-});
+    if(s.currentPageNumber < 4 && e.deltaY > 0){
+        //$('#changingBG').css("backgroundImage", "url(" + "../img/bg/" + (s.currentPageNumber + 1) + ".png" + ")");
+        $("#changingBG").fadeOut(400, function () {
+            $(this).css("background-image", "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(" + "../img/bg/s/" + (s.currentPageNumber) + ".png" + ")");
+            $(this).fadeIn(400);
+        });
+    
+      } else if(s.currentPageNumber < 5 && s.currentPageNumber > 0 &&  e.deltaY < 0){
+        //$('#changingBG').css("backgroundImage", "url(" + "../img/bg/" + (s.currentPageNumber - 1) + ".png" + ")");
+        $("#changingBG").fadeOut(400, function () {
+            $(this).css("background-image", "linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), url(" + "../img/bg/s/" + (s.currentPageNumber) + ".png" + ")");
+            $(this).fadeIn(400);
+        });
+      }
+}
 
 
 
