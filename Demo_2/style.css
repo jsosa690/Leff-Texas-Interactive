@@ -61,55 +61,106 @@ aside .container {
 #all-pages .page:nth-child(1) {
     display: grid;
     background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)),
-        url(../img/bg/1.png) center / cover;
+        url(../img/bg/s/1.png) center / cover;
     background-attachment: fixed;
 }
 
 #all-pages .page:nth-child(2) {
-    background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
-        url(../img/bg/2.png) center / cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)),
+        url() center / cover;
     background-attachment: fixed;
 }
 
 #all-pages .page:nth-child(3) {
-    background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
-        url(../img/bg/2.png) center / cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)),
+        url() center / cover;
     background-attachment: fixed;
 }
 
 #all-pages .page:nth-child(4) {
-    background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
-        url(../img/bg/2.png) center / cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)),
+        url() center / cover;
+    
     background-attachment: fixed;
 }
 
 #all-pages .page:nth-child(5) {
-    background: url() center / cover;
+    /* background: url() center / cover; */
+    background-color: white;
     background-attachment: fixed;
+    
 }
 
 #all-pages .page:nth-child(6) {
     background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-        url(../img/bg/5.png) center / cover;
+        url(../img/bg/s/5.png) center / cover;
     background-attachment: fixed;
 }
 
 #all-pages .page:nth-child(7) {
-    background: url() center / cover;
+    /* background: url() center / cover; */
+    background-color: white;
     background-attachment: fixed;
+    z-index: 1;
 }
 
 #all-pages .page:nth-child(8) {
     background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
-        url(../img/bg/6.png) center / cover;
+        url(../img/bg/s/6.png) center / cover;
     background-attachment: fixed;
 }
 
 #all-pages .page:nth-child(9) {
     background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
-        url(../img/bg/6.png) center / cover;
+        url(../img/bg/s/6.png) center / cover;
     background-attachment: fixed;
 }
+
+#changingBG {
+    position: fixed;
+    bottom: 0%;
+    right: 0%;
+    width: 100vw;
+    height: 100vh;
+    margin: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -2;
+}
+/* .backgroundImg_2 {
+
+
+    background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), center / cover;
+    background-image: url(../img/bg/01.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    -webkit-transition: background-image 0.3s ease-in-out;
+    -moz-transition: background-image 0.3s ease-in-out;
+    -ms-transition: background-image 0.3s ease-in-out;
+    transition: background-image 0.3s ease-in-out;
+}
+.backgroundImg_3 {
+    background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05));
+    background-image: url(../img/bg/08.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-transition: background-image 0.3s ease-in-out;
+    -moz-transition: background-image 0.3s ease-in-out;
+    -ms-transition: background-image 0.3s ease-in-out;
+    transition: background-image 0.3s ease-in-out;
+}
+.backgroundImg_4 {
+    background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05));
+    background-image: url(../img/bg/03.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    -webkit-transition: background-image 0.3s ease-in-out;
+    -moz-transition: background-image 0.3s ease-in-out;
+    -ms-transition: background-image 0.3s ease-in-out;
+    transition: background-image 0.3s ease-in-out;
+} */
 
 /*#endregion containers */
 
