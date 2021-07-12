@@ -222,6 +222,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('wheel', FadeInOutBG);
 document.addEventListener('touchstart', FadeInOutBG);
+document.addEventListener('touchend', FadeInOutBG);
+document.addEventListener('touchmove', FadeInOutBG);
 
 function FadeInOutBG(e){
 
