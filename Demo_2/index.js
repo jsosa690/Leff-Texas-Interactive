@@ -156,7 +156,12 @@ class ScrollPages {
                 this.navDots.forEach(e => {
                     e.classList.remove('dot-active');
                 });
+                
+                if(index > 0 && index < 5){ 
+                 document.getElementById('changingBG').style.backgroundImage = "url(" + "../img/bg/s/" + (index + 1) + ".png" + ")";
+                }
                 e.classList.add('dot-active');
+                
             });
         });
     }
