@@ -38,13 +38,13 @@ class ScrollPages {
 
     mouseScroll(event) {
         let delta = helper.getDelta(event);
-        if (delta < 0) {
-            this.scrollUp(event);
-            //console.log('scroll down!');
-        } else {
-            this.scrollDown(event);
-            //console.log('scroll up!');
-        }
+            if (delta < 0) {
+                this.scrollUp(event);
+                console.log('scroll down!');
+            } else {
+                this.scrollDown(event);
+                console.log('scroll up!');
+            }  
     }
 
     getContainers(e) {
@@ -181,15 +181,19 @@ class ScrollPages {
         textContainerInSight.classList.add('in-sight')
     }
     init() {
-        let handleMouseWheel = helper.throttle(this.mouseScroll, 500, this);
+        let handleMouseWheel = helper.throttle(this.mouseScroll, 1400, this);
         let handleResize = helper.debounce(this.resize, 500, this);
         this.pages.style.height = this.viewHeight + 'px';
         this.createNav();
         this.textFadeInOut();
+ 
+        //document.addEventListener('wheel', handleMouseWheel);
         if (navigator.userAgent.toLowerCase().indexOf('firefox') === -1) {
             document.addEventListener('wheel', handleMouseWheel);
+            //document.addEventListener('wheel', handleResize);
         } else {
             document.addEventListener('DOMMouseScroll', handleMouseWheel);
+            //document.addEventListener('wheel', handleResize);
         }
         document.addEventListener('touchstart', (event) => {
             this.startY = event.touches[0].pageY;

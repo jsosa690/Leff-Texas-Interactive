@@ -38,13 +38,14 @@ class ScrollPages {
 
     mouseScroll(event) {
         let delta = helper.getDelta(event);
-        if (delta < 0) {
-            this.scrollUp(event);
-            //console.log('scroll down!');
-        } else {
-            this.scrollDown(event);
-            //console.log('scroll up!');
-        }
+        let absDelta = Math.abs(delta);
+            if (delta < 0) {
+                this.scrollUp(event);
+                //console.log('scroll down!');
+            } else {
+                this.scrollDown(event);
+                //console.log('scroll up!');
+            }  
     }
 
     getContainers(e) {
@@ -186,7 +187,7 @@ class ScrollPages {
         textContainerInSight.classList.add('in-sight')
     }
     init() {
-        let handleMouseWheel = helper.throttle(this.mouseScroll, 500, this);
+        let handleMouseWheel = helper.throttle(this.mouseScroll, 1400, this);
         let handleResize = helper.debounce(this.resize, 500, this);
         this.pages.style.height = this.viewHeight + 'px';
         this.createNav();
@@ -225,15 +226,17 @@ document.addEventListener('DOMContentLoaded', function () {
  s.init();
 })
 
+const handleFadeInOut = helper.throttle(FadeInOutBG, 1300, s);
 
 if (navigator.userAgent.toLowerCase().indexOf('firefox') === -1) {
-    document.addEventListener('wheel', FadeInOutBG);
+    document.addEventListener('wheel', handleFadeInOut);
 } else {
-    document.addEventListener('DOMMouseScroll', FadeInOutBG);
+    document.addEventListener('DOMMouseScroll', handleFadeInOut);
 }
-document.addEventListener('touchstart', FadeInOutBG);
-document.addEventListener('touchend', FadeInOutBG);
-document.addEventListener('touchmove', FadeInOutBG);
+document.addEventListener('touchstart', handleFadeInOut);
+document.addEventListener('touchend', handleFadeInOut);
+document.addEventListener('touchmove', handleFadeInOut);
+
 
 function FadeInOutBG(e){
 
