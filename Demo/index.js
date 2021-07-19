@@ -1,8 +1,10 @@
 const helper = {
     getDelta(event) {
-        if (event.deltaY) {
-            return event.deltaY;
+        if (event.wheelDelta) {
+            this.getWheelDelta = event => -event.wheelDelta;
+            return -event.wheelDelta;
         } else {
+            this.getWheelDelta = event => -event.detail;
             return -event.detail;
         }
     },
@@ -19,13 +21,10 @@ const helper = {
         }
     },
     debounce(method, delay, context) {
-        let inDebounce;
-        return function () {
-            clearTimeout(method.inDebounce);
-            inDebounce = setTimeout(() => {
-                method.apply(context, arguments);
-            }, delay);
-        }
+        clearTimeout(method.inDebounce);    
+        inDebounce = setTimeout(() => {
+            method.apply(context, arguments);
+        }, delay); 
     }
 }
 class ScrollPages {
@@ -38,6 +37,7 @@ class ScrollPages {
 
     mouseScroll(event) {
         let delta = helper.getDelta(event);
+        console.log(delta);
             if (delta < 0) {
                 this.scrollUp(event);
                 console.log('scroll down!');
@@ -181,7 +181,7 @@ class ScrollPages {
         textContainerInSight.classList.add('in-sight')
     }
     init() {
-        let handleMouseWheel = helper.throttle(this.mouseScroll, 1400, this);
+        let handleMouseWheel = helper.throttle(this.mouseScroll, 500, this);
         let handleResize = helper.debounce(this.resize, 500, this);
         this.pages.style.height = this.viewHeight + 'px';
         this.createNav();
@@ -221,5 +221,4 @@ class ScrollPages {
 document.addEventListener('DOMContentLoaded', function () {
     var s = new ScrollPages(1, 9, document.getElementById('all-pages'));
     s.init();
-    
 })

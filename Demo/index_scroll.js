@@ -22,10 +22,10 @@ var windowHeight = Math.min(document.body.scrollHeight, document.body.offsetHeig
 console.log(windowWidth);
 console.log(windowHeight);
 
-if( windowWidth <= 600){
-  scrollEl_sup.css('margin-top', -(windowHeight + singleStepHeight_sup)/3 + 'px');
+if (windowWidth <= 600) {
+  scrollEl_sup.css('margin-top', -(windowHeight + singleStepHeight_sup) / 3 + 'px');
 } else {
-  scrollEl_sup.css('margin-top', -(windowHeight + singleStepHeight_sup)/2 + 'px');
+  scrollEl_sup.css('margin-top', -(windowHeight + singleStepHeight_sup) / 2 + 'px');
 }
 
 
@@ -33,40 +33,48 @@ if( windowWidth <= 600){
 $('.img_svg_supply').attr("src", "../img/svgChart/" + image_svg[cur_index] + ".svg");
 
 //add event listener to both pc and mobile devices
-document.getElementById("supply_scrolly").addEventListener('wheel', getIndex, {passive: true});
-document.getElementById("supply_scrolly").addEventListener('touchstart', getIndex, {passive: true});
-document.getElementById("supply_scrolly").addEventListener('touchend', getIndex, {passive: true});
-document.getElementById("supply_scrolly").addEventListener('touchmove', getIndex, {passive: true});
+document.getElementById("supply_scrolly").addEventListener('wheel', getIndex, {
+  passive: true
+});
+document.getElementById("supply_scrolly").addEventListener('touchstart', getIndex, {
+  passive: true
+});
+document.getElementById("supply_scrolly").addEventListener('touchend', getIndex, {
+  passive: true
+});
+document.getElementById("supply_scrolly").addEventListener('touchmove', getIndex, {
+  passive: true
+});
 
 function getIndex(e) {
   if (e.deltaY < 0) {
     downAndUp = "down";
   } else if (e.deltaY > 0) {
-    downAndUp = "up"; 
+    downAndUp = "up";
   }
 
   var scrollEl_sup = $('#sup_step');
   var scrollTop_sup = scrollEl_sup.position().top - 20;
   var index = [0, 1];
-  if(windowWidth <= 600){
-    var i = Math.floor((windowHeight - scrollTop_sup + windowHeight/3)/ windowHeight);
+  if (windowWidth <= 600) {
+    var i = Math.floor((windowHeight - scrollTop_sup + windowHeight / 3) / windowHeight);
   } else {
-    var i = Math.floor((windowHeight- scrollTop_sup + windowHeight/2)/ windowHeight);
+    var i = Math.floor((windowHeight - scrollTop_sup + windowHeight / 2) / windowHeight);
   }
-  
 
-if(index.includes(i)){
-  cur_index = i;
-  if(prev_cur_index !== cur_index){
-    // $('.img_svg_supply').fadeTo(500,0.30, function() {
-    //   $('.img_svg_supply').attr("src", "../img/svgChart/" + image_svg[cur_index] + ".svg");
-    // }).fadeTo(1000,1);
-    $('.img_svg_supply').attr("src", "../img/svgChart/" + image_svg[cur_index] + ".svg");
+
+  if (index.includes(i)) {
+    cur_index = i;
+    if (prev_cur_index !== cur_index) {
+      // $('.img_svg_supply').fadeTo(500,0.30, function() {
+      //   $('.img_svg_supply').attr("src", "../img/svgChart/" + image_svg[cur_index] + ".svg");
+      // }).fadeTo(1000,1);
+      $('.img_svg_supply').attr("src", "../img/svgChart/" + image_svg[cur_index] + ".svg");
+    }
+  } else {
+    cur_index = 0;
   }
-} else {
-  cur_index = 0;
-}
-prev_cur_index = cur_index;
+  prev_cur_index = cur_index;
 }
 
 // initialize the scrollama
