@@ -181,7 +181,7 @@ class ScrollPages {
         textContainerInSight.classList.add('in-sight')
     }
     init() {
-        let handleMouseWheel = helper.throttle(this.mouseScroll, 500, this);
+        let handleMouseWheel = helper.throttle(this.mouseScroll, 1400, this);
         let handleResize = helper.debounce(this.resize, 500, this);
         this.pages.style.height = this.viewHeight + 'px';
         this.createNav();
