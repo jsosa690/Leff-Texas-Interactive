@@ -1,6 +1,7 @@
 @font-face {
-    font-family: "ITC Avant Garde Gothic";
-    src: url(avantgardegothic.woff) format('woff'),
+    font-family: ITC Avant Garde Gothic Std;
+    src: url(../fonts/Avant\ Garde\ Gothic\ fonts/ITC\ -\ ITCAvantGardeStd-Md.otf),
+        url(avantgardegothic.woff) format('woff'),
         url(avantgardegothic.woff2) format('woff2'),
         url(avantgardegothic.eot) format('embedded-opentype'),
         url(avantgardegothic.otf) format('opentype');
@@ -10,12 +11,13 @@ body {
     overflow: hidden;
     width: 100%;
     height: 100%;
+    font-family: ITC Avant Garde Gothic Std, sans-serif;
 }
 
 * {
     margin: 0;
     padding: 0;
-    font-family: "Avant Garde Gothic", "Open Sans", Helvetica, Calibri, sans-serif;
+    font-family: ITC Avant Garde Gothic Std, sans-serif;
 }
 
 /*#region containers */
@@ -58,6 +60,45 @@ aside .container {
     overflow-y: scroll;
 }
 
+#sup_div {
+    position: relative;
+    overflow-y: scroll;
+}
+
+p#sup_step_0, 
+p#sup_step_1,
+p#dem_step_0,
+p#dem_step_1,
+p#dem_step_2,
+p#dem_step_3,
+p#dem_step_4 {
+    width: 30%;
+    z-index: -3;
+}
+
+
+p#sup_step_0 {
+    animation: fadeOutText 1s linear;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+
+p#sup_step_1 {
+    animation: fadeInText 1s linear;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+
+#dem_div {
+    position: relative;
+    overflow-y: scroll;
+}
+
+
 #all-pages .page:nth-child(1) {
     display: grid;
     background: linear-gradient(rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0)),
@@ -73,13 +114,13 @@ aside .container {
 
 #all-pages .page:nth-child(3) {
     background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
-        url(../img/bg/2.png) center / cover;
+        url(../img/bg/deprecated-img/03\ copy.png) right / 50% 110%;
     background-attachment: fixed;
 }
 
 #all-pages .page:nth-child(4) {
     background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
-        url(../img/bg/2.png) center / cover;
+        url(../img/bg/deprecated-img/03\ copy.png) right / 50% 110%;
     background-attachment: fixed;
 }
 
@@ -115,6 +156,7 @@ aside .container {
 
 /*#region texts */
 #headerText {
+    font-family: ITC Avant Garde Gothic Std, sans-serif;
     grid-template-columns: 1fr;
     width: 45%;
     text-align: left;
@@ -129,15 +171,17 @@ aside .container {
 }
 
 .headerTitle {
-    font-family: 'Nanum Gothic', sans-serif;
+    font-family: ITC Avant Garde Gothic Std, sans-serif;
+    text-shadow: 2px 2px 5px white;
     font-size: 5em;
     line-height: 1.0;
-    vertical-align: center;
     margin-bottom: 30px;
+    vertical-align: center;
 }
 
 p.headerTip {
-    font-family: ff-real-text-pro, sans-serif;
+    font-family: ITC Avant Garde Gothic Std, sans-serif;
+    text-shadow: 1px 1px 0px white;
     font-size: 1.2rem;
     font-weight: 400;
     font-style: normal;
@@ -147,8 +191,6 @@ p.headerTip {
 }
 
 #intro_1_text,
-#intro_2_text,
-#intro_3_text,
 #demand_intro_text,
 #conclusion_1_text,
 #conclusion_2_text {
@@ -158,12 +200,75 @@ p.headerTip {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 35px;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: #DEEEED;
     color: #EC694B;
     box-shadow: 5px 4px 5px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
-    font-size: 1.5rem;
+    
+    font-family: ITC Avant Garde Gothic Std;
+    font-size: 30px;
+    line-height: 43px;
+    align-items: center;
+    letter-spacing: 0.02em;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+#intro_2_text,
+#intro_3_text {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #DEEEED;
+    color: #EC694B;
     text-align: start;
+}
+
+#intro_1_paragraph,
+#conclusion_1_paragraph,
+#conclusion_2_paragraph {
+    padding-left: 30px;
+    padding-right: 30px;
+    font-family: ITC Avant Garde Gothic Std;
+    font-size: 30px;
+    line-height: 43px;
+    align-items: center;
+    letter-spacing: 0.02em;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+#intro_2_paragraph,
+#intro_3_paragraph {
+    padding-left: 53px;
+    padding-right: 30px;
+    font-family: ITC Avant Garde Gothic Std;
+    font-size: 30px;
+    line-height: 43px;
+    align-items: center;
+    letter-spacing: 0.02em;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+#sup_step_0,
+#sup_step_1,
+#dem_step_0,
+#dem_step_1,
+#dem_step_2,
+#dem_step_3,
+#dem_step_4 {
+    font-family: ITC Avant Garde Gothic Std;
+    font-size: 30px;
+    line-height: 43px;
+    letter-spacing: 0.02em;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+span {
+    font-family: ITC Avant Garde Gothic Std;
+    font-size: 30px;
+    line-height: 43px;
+    letter-spacing: 0.02em;
+    font-feature-settings: 'pnum' on, 'lnum' on;
 }
 
 span.sup {
@@ -172,6 +277,60 @@ span.sup {
 
 span.dem {
     color: #54AFAB;
+}
+
+
+.sup_img {
+    position: fixed;
+    z-index: -1;
+    right: 0%;
+    top: 25%;
+    width: 50%;
+    max-width: 55rem;
+    padding-right: 100px;
+
+    animation: fadeOut 1s linear;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+  }
+
+  .sup_img2 {
+    position: fixed;
+    z-index: -1;
+    right: 0%;
+    top: 25%;
+    width: 50%;
+    max-width: 55rem;
+    padding-right: 100px;
+
+    opacity: 0;
+    animation: fadeIn 1s linear;
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1s);
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+
+.dem_img,
+.dem_img2,
+.dem_img3,
+.dem_img4,
+.dem_img5 {
+    position: fixed;
+    z-index: -1;
+    right: 0%;
+    top: 5%;
+    height: 85%;
+    padding-right: 100px;
+}
+
+.dem_img2,
+.dem_img3,
+.dem_img4,
+.dem_img5 {
+    opacity: 0;
 }
 
 /*#endregion texts */
@@ -193,6 +352,8 @@ span.dem {
 
 .backToTop_arrow {
     transform: rotate(180deg);
+    display: flex;
+    padding: 3px;
 }
 
 #backToTop:hover {
@@ -299,120 +460,67 @@ span.dem {
 
 /*#endregion scroll anim */
 
-/*#region mobile device style */
-@media only screen and (max-width: 600px) {
-
-    #headerText {
-        grid-template-columns: 1fr;
-        width: 67%;
-        text-align: center;
-        position: absolute;
-        top: 60%;
-        left: 50%;
-        padding-bottom: 30px;
-        transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        -webkit-transform: translate3d(-50%, -50%, 0);
-        color: #db5739;
+/*#region anim*/
+@keyframes bounce {
+    0% {
+      top: 0px;
     }
-
-    .headerTitle {
-        font-family: 'Nanum Gothic', sans-serif;
-        font-size: 2.7em;
-        font-weight: 600;
-        line-height: 1.0;
-        vertical-align: center;
-        margin-bottom: 30%;
+    60% {
+      top:280px;
     }
-
-    p.headerTip {
-        font-family: ff-real-text-pro, sans-serif;
-        font-size: 1rem;
-        font-weight: 400;
-        font-style: normal;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-bottom: 10px;
-        color: #db5739d8;
+    100% {
+      top: 249px;
     }
-
-    .scroll {
-        position: relative;
-        text-align: center;
-        display: block;
-        cursor: ns-resize;
-    }
-
-    #intro_1_text,
-    #intro_2_text,
-    #intro_3_text,
-    #demand_intro_text,
-    #conclusion_1_text,
-    #conclusion_2_text {
-        width: 65%;
-        position: relative;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 25px;
-        background-color: rgba(253, 253, 253, 0.89);
-        color: #db5739d8;
-        box-shadow: 5px 4px 5px rgba(0, 0, 0, 0);
-        border-radius: 4px;
-        font-size: 1.2rem;
-        text-align: start;
-    }
-
-    /*#region back to top button */
-    #backToTop {
-        position: fixed;
-        bottom: 5%;
-        right: 3%;
-        width: 35px;
-        height: 35px;
-        margin: auto;
-        opacity: 0.8;
-        background-color: #EC694B;
-        text-align: center;
-        border-radius: 50%;
-        transition: all 200ms ease;
-    }
-
-    .backToTop_arrow {
-        transform: rotate(180deg);
-    }
-
-    #backToTop:hover {
-        transform: scale(1.1);
-    }
-
-    .backToTop_container {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 1.2rem;
-        color: #ffffff;
-    }
-
-    #backToTop p {
-        opacity: 0;
-        margin-top: 5px;
-        font-size: 0.5rem;
-        font-weight: 600;
-        color: #399793;
-    }
-
-    /*#endregion back to top button */
 }
 
-/*#endregion mobile device style */
+@-webkit-keyframes bounce {
+    0% {
+      top: 0px;
+    }
+    60% {
+      top:280px;
+    }
+    100% {
+      top: 249px;
+    }
+}
 
-/*#region anim*/
+@-moz-keyframes bounce {
+    0% {
+      top: 0px;
+    }
+    60% {
+      top:280px;
+    }
+    100% {
+      top: 249px;
+    }
+}
+
+@-ms-keyframes bounce {
+    0% {
+      top: 0px;
+    }
+    60% {
+      top:280px;
+    }
+    100% {
+      top: 249px;
+    }
+}
+
+@-o-keyframes bounce {
+    0% {
+      top: 0px;
+    }
+    60% {
+      top:280px;
+    }
+    100% {
+      top: 249px;
+    }
+}
+
 @keyframes ball-scroll {
     0% {
         opacity: 1;
@@ -523,6 +631,111 @@ span.dem {
     }
 }
 
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+  }
+
+@keyframes fadeOutText {
+    0% {
+        opacity: 1;
+    }
+
+    20% {
+        opacity: 0;
+    }
+    
+    50% {
+        opacity: 0;
+    }
+    
+    100% {
+        opacity: 0;
+    }
+  }
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+  }
+
+  @keyframes fadeInText {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0;
+    }
+    
+    70% {
+        opacity: 0;
+    }
+    
+    100% {
+        opacity: 1;
+    }
+  }
+
+  @keyframes dem2 {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+  }
+
+  @keyframes dem3 {
+    0% {
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+  }
+
+  @keyframes dem4 {
+    0% {
+        opacity: 0;
+    }
+
+    65% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+  }
+
+  @keyframes dem5 {
+    0% {
+        opacity: 0;
+    }
+
+    85% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+  }
+
+
 /*#endregion anim*/
 
 
@@ -551,11 +764,14 @@ span.dem {
   }
   .step {
     grid-template-columns: 1fr;
-    width: 25%;
+    width: 100%;
+    height: 100%;
     min-width: 20rem;
-    margin: 0 auto 2rem auto;
+    margin: 0 auto;
     color: #3b3b3b;
-    margin-left: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
   }
   .step:last-child {
     margin-bottom: 0;
@@ -568,7 +784,7 @@ span.dem {
   }
   .step p {
     text-align: left;
-    padding: 2rem;
+    padding: 4rem;
     font-size: 1.5rem;
     background-color: rgba(255, 255, 255, 0.95);
   }
@@ -628,57 +844,3 @@ span.dem {
     transform: translate(-50%, -50%);
   }
   /*#endregion figure */ 
-
-  /*#region mobile device style */
-  @media only screen and (max-width: 600px) {
-    /* article area */
-    article {
-      position: relative;
-      padding: 0;
-      margin: -250px auto;
-      width: 100%;
-    }
-    .step {
-      grid-template-columns: 1fr;
-      min-width: 17rem;
-      margin: 0 auto;
-      color: #3b3b3b;
-    }
-    .step:last-child {
-      margin-bottom: 0;
-    }
-    .step.is-active p {
-      background-color: rgba(255, 255, 255, 0.95);
-      color: #3b3b3b;
-      box-shadow: 5px 4px 5px rgba(0, 0, 0, 0.030);
-      border-radius: 4px;
-    }
-    .step p {
-      text-align: left;
-      padding: 1rem;
-      font-size: 1.2rem;
-      background-color: rgba(255, 255, 255, 0.95);
-    }
-    /* figure area */
-    .img_svg_supply {
-      position: absolute;
-      width: 80%; 
-      max-width: 55rem;
-      top: 30%;
-      left: 45%;
-      margin-right: -50%;
-      padding-bottom: 30px;
-      transform: translate(-50%, -50%);
-    }
-    .img_svg_demand {
-      position: absolute;
-      width: 75%; 
-      max-width: 55rem;
-      top: 35%;
-      left: 50%;
-      margin-right: -50%;
-      padding-bottom: 30px;
-      transform: translate(-50%, -50%);
-    }
-  }
-  /*#endregion mobile device style */

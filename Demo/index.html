@@ -10,8 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/6520a292d0.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="./scrollStyle.css">
-
+  <link rel="stylesheet" href="./mobile_style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <title>Document</title>
 </head>
 
@@ -39,10 +39,8 @@
       <section class="page">
         <div id="intro_1" class="container">
           <div id="intro_1_text">
-            <p>For two weeks in February 2021, brutal winter storms caused Texans to be left without power
-              for
-              days
-              on end.
+            <p id="intro_1_paragraph">For two weeks in February 2021, brutal winter storms caused Texans to be left without power
+              for days on end.
             </p>
           </div>
         </div>
@@ -50,55 +48,91 @@
       <section class="page">
         <div id="intro_2" class="container">
           <div id="intro_2_text">
-            <p>Let’s take a close look at what happened to the gas supply and demand in Texas on February
-              15,
-              when
-              the Electric Reliability Council of Texas(ERCOT) issued a level-three Emergency Energy
-              Alert.
+            <p id="intro_2_paragraph">Let’s take a close look at what happened to the gas supply and demand in Texas on February
+              15, when the Electric Reliability Council of Texas (ERCOT) issued a level-three Emergency Energy Alert.
             </p>
           </div>
-          <div class="intro_2_img"></div>
         </div>
       </section>
       <section class="page">
         <div id="intro_3" class="container">
           <div id="intro_3_text">
-            <p>During the crisis, the cold weather hurt all power-generation sources, with the most
+            <p id="intro_3_paragraph">During the crisis, the cold weather hurt all power-generation sources, with the most
               significant
               gap
               coming from coal and gas facilities.</p>
           </div>
-          <div class="intro_3_img"></div>
         </div>
       </section>
-      <aside id="supply_scrolly" class="page">
-        <div id="scrollableSection_supply" class="container">
-          <figure>
-            <div id="supplyChart">
-              <img class="img_svg_supply" src="" alt="">
-            </div>
-          </figure>
-          <article id="sup_step">
-            <div class="step" data-step="0">
-              <p id="sup_step_0">Using February 7 as a baseline, the normal gas supply in Texas is coming from <span
-                  class="sup">production
-                  (49%), imports (13%), storage withdrawals(38%).</span></p>
-            </div>
-            <div class="step" data-step="1">
-              <p>On February 15, because of production freeze-off (-20%), import bottlenecks (-9%),
-                storage freeze-offs (-27%), the gas supply in Texas <span class="sup">fell</span> by ~56%.</p>
-            </div>
-          </article>
+      
+      <section id="test" class="page">
+        <div id="sup_div" class="container">
+
+          <div class="step">
+            <p id="sup_step_0">Using February 7 as a baseline, the normal gas supply in Texas is coming from <span
+              class="sup">production
+              (49%), imports (13%), storage withdrawals (38%).</span></p>
+              
+          </div>
+          <img src="../img/svgChart/supply_01.svg" class="sup_img">
+          <div class="step">
+            <p id="sup_step_1">On February 15, because of production freeze-off (-20%), import bottlenecks (-9%),
+              storage freeze-offs (-27%), the gas supply in Texas <span class="sup">fell</span> by ~56%.</p>
+          </div>
+          <div class="image_container"></div>
+          <img src="../img/svgChart/supply_02.svg" class="sup_img2">
         </div>
-      </aside>
+      </section>
+      
       <section class="page">
         <div id="demand_intro" class="container">
           <div id="demand_intro_text">
-            <p>Next, let’s focus on gas demand in Texas on February 15.</p>
+            <p id="demand_intro_paragraph">Next, let’s focus on gas demand in Texas on February 15.</p>
           </div>
         </div>
       </section>
-      <aside id="demand_scrolly" class="page">
+
+
+      <section id="test" class="page">
+        <div id="dem_div" class="container">
+
+          <div class="step">
+            <p id="dem_step_0"><span class="dem">Nonessential liquefied natural gas (LNG)</span> exports in Texas were
+              cut first, with feed gas
+              dropping by ~75% from February 7 to February 15, followed by net exports to other
+              states.</p>
+          </div>
+          <img src="../img/svgChart/Chart2d.svg" class="dem_img">
+          <div class="step">
+            <p id="dem_step_1"><span class="dem">Mexico exports</span> were cut by one-third, even before the governor of Texas
+              ordered cuts to
+              exports.</p>
+          </div>
+          <img src="../img/svgChart/Chart2c.svg" class="dem_img2">
+          <div class="step">
+            <p id="dem_step_2"><span class="dem">Industrial activity</span> dropped by ~40%, while <span class="dem">residential and
+                commercial</span> customers,
+              typically triaged first for gas service, were cut by ~50%.</p>
+          </div>
+          <img src="../img/svgChart/Chart2b.svg" class="dem_img3">
+          <div class="step">
+            <p id="dem_step_3">Facing both freeze-offs and a decline in fuel supply, gas <span class="dem">power</span> generation
+              dropped ~40%.
+            </p>
+          </div>
+          <img src="../img/svgChart/Chart2a.svg" class="dem_img4">
+          <div class="step">
+            <p id="dem_step_4">Finally, the <span class="dem">total gas demand</span> on February 15 was 16 bcfd. Even if all power
+              generation
+              facilities had been weatherized, Texas supply was likely 6 bcfd short of demand needs.
+            </p>
+          </div>
+          <img src="../img/svgChart/Chart2e.svg" class="dem_img5">
+        </div>
+      </section>
+
+
+      <!-- <aside id="demand_scrolly" class="page">
         <div id="scrollableSection_demand" class="container">
           <figure>
             <div id="demandChart">
@@ -113,33 +147,33 @@
                 states.</p>
             </div>
             <div class="step" data-step="1">
-              <p><span class="dem">Mexico exports</span> were cut by one-third, even before the governor of Texas
+              <p id="dem_step_1"><span class="dem">Mexico exports</span> were cut by one-third, even before the governor of Texas
                 ordered cuts to
                 exports.</p>
             </div>
             <div class="step" data-step="2">
-              <p><span class="dem">Industrial activity</span> dropped by ~40%, while <span class="dem">residential and
+              <p id="dem_step_2"><span class="dem">Industrial activity</span> dropped by ~40%, while <span class="dem">residential and
                   commercial</span> customers,
                 typically triaged first for gas service, were cut by ~50%.</p>
             </div>
             <div class="step" data-step="3">
-              <p>Facing both freeze-offs and a decline in fuel supply, gas <span class="dem">power</span> generation
+              <p id="dem_step_3">Facing both freeze-offs and a decline in fuel supply, gas <span class="dem">power</span> generation
                 dropped ~40%.
               </p>
             </div>
             <div class="step" data-step="4">
-              <p>Finally, the <span class="dem">total gas demand</span> on February 15 was 16 bcfd. Even if all power
+              <p id="dem_step_4">Finally, the <span class="dem">total gas demand</span> on February 15 was 16 bcfd. Even if all power
                 generation
                 facilities had been weatherized, Texas supply was likely 6 bcfd short of demand needs.
               </p>
             </div>
           </article>
         </div>
-      </aside>
+      </aside> -->
       <section class="page">
         <div id="conlusion_1" class="container">
           <div id="conclusion_1_text">
-            <p><span class="dem">Our analysis shows that even if all power-generation facilities were fully operation,
+            <p id="conclusion_1_paragraph"><span class="dem">Our analysis shows that even if all power-generation facilities were fully operation,
                 they</span>
               <span class="sup">would not have been able to source enough gas</span><span class="dem"> without further
                 cuts to residential and commercial
@@ -150,7 +184,7 @@
       <section class="page">
         <div id="conclusion_2" class="container">
           <div id="conclusion_2_text">
-            <p>Thus, additional questions should be asked about gas supply and not just the power grid.</p>
+            <p id="conclusion_2_paragraph">Thus, additional questions should be asked about gas supply and not just the power grid.</p>
           </div>
         </div>
       </section>
@@ -169,9 +203,7 @@
   <script src="../libs/stickyfill.min.js"></script>
   <script src="../libs/scrollama.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-  <script type="text/javascript" src="./index_scroll.js"></script>
-  <script type="text/javascript" src="./index_scroll2.js"></script>
+  <script type="text/javascript" src="./animations.js"></script>
 
   <script type="text/javascript" src="./index.js"></script>
 </body>

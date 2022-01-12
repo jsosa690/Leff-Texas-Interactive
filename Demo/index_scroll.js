@@ -19,8 +19,8 @@ var singleStepHeight_sup = d3.select('#sup_step_0').node().getBoundingClientRect
 var windowWidth = Math.max(document.body.scrollWidth, document.body.offsetWidth, document.documentElement.clientWidth, document.documentElement.scrollWidth, document.documentElement.offsetWidth);
 var windowHeight = Math.min(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
 
-console.log(windowWidth);
-console.log(windowHeight);
+console.log("windowWidth: " + windowWidth);
+console.log("windowHeight: " + windowHeight);
 
 if (windowWidth <= 600) {
   scrollEl_sup.css('margin-top', -(windowHeight + singleStepHeight_sup) / 3 + 'px');

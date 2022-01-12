@@ -8,6 +8,7 @@ const helper = {
             return -event.detail;
         }
     },
+
     throttle(method, delay, context) {
         let inThrottle = false;
         return function () {
@@ -20,6 +21,7 @@ const helper = {
             }
         }
     },
+    
     debounce(method, delay, context) {
         clearTimeout(method.inDebounce);    
         inDebounce = setTimeout(() => {
@@ -27,6 +29,7 @@ const helper = {
         }, delay); 
     }
 }
+
 class ScrollPages {
     constructor(currentPageNumber, totalPageNumber, pages) {
         this.currentPageNumber = currentPageNumber;
@@ -41,10 +44,10 @@ class ScrollPages {
             if (delta < 0) {
                 this.scrollUp(event);
                 console.log('scroll down!');
-            } else {
+                } else {
                 this.scrollDown(event);
                 console.log('scroll up!');
-            }  
+                }
     }
 
     getContainers(e) {
@@ -82,7 +85,13 @@ class ScrollPages {
             this.getScrollableEl();
 
             if (this.currentPageNumber !== this.totalPageNumber) {
-                if (this.curContainer.nodeName !== this.scrollableSection) {
+                if (this.currentPageNumber == 5 && Math.round(document.getElementById("sup_div").scrollTop) < document.documentElement.clientHeight) {
+                    document.body.style.setProperty('--scroll', Math.round(document.getElementById("sup_div").scrollTop) / window.innerHeight);
+                    //left intentionally blank
+                } else if (this.currentPageNumber == 7 && document.getElementById("dem_div").scrollTop < (document.documentElement.clientHeight * 4)) {
+                    //left intentionally blank
+
+                } else if (this.curContainer.nodeName !== this.scrollableSection) {
                     this.pages.style.top = (-this.viewHeight * this.currentPageNumber) + 'px';
                     this.currentPageNumber++;
                     this.updateNav();
@@ -103,14 +112,21 @@ class ScrollPages {
                 this.textFadeInOut();
             }
         }
+        this.updateGraphs();
     }
+
     scrollUp(event) {
         if (event.type === 'wheel' || event.type == 'DOMMouseScroll' || event.type === 'touchend') {
             this.getContainers(event);
             this.getScrollableEl();
 
             if (this.currentPageNumber !== 1) {
-                if (this.curContainer.nodeName !== this.scrollableSection) {
+                if (this.currentPageNumber == 5 && Math.round(document.getElementById("sup_div").scrollTop) > 0) {
+                    document.body.style.setProperty('--scroll', Math.round(document.getElementById("sup_div").scrollTop) / window.innerHeight);
+                    //left intentionally blank
+                } else if (this.currentPageNumber == 7 && document.getElementById("dem_div").scrollTop > 0) {
+                    //left intentionally blank
+                } else if (this.curContainer.nodeName !== this.scrollableSection) {
                     this.pages.style.top = (-this.viewHeight * (this.currentPageNumber - 2)) + 'px';
                     this.currentPageNumber--;
                     this.updateNav();
@@ -130,7 +146,9 @@ class ScrollPages {
                 this.textFadeInOut();
             }
         }
+        this.updateGraphs();
     }
+
     scrollTo(targetPageNumber, event) {
         while (this.currentPageNumber !== targetPageNumber) {
             if (this.currentPageNumber > targetPageNumber) {
@@ -140,6 +158,7 @@ class ScrollPages {
             }
         }
     }
+
     createNav() {
         const pageNav = document.createElement('div');
         pageNav.className = 'nav-dot-container';
@@ -160,17 +179,20 @@ class ScrollPages {
             });
         });
     }
+
     updateNav() {
         this.navDots.forEach(e => {
             e.classList.remove('dot-active');
         });
         this.navDots[this.currentPageNumber - 1].classList.add('dot-active');
     }
+
     resize() {
         this.viewHeight = document.documentElement.clientHeight;
         this.pages.style.height = this.viewHeight + 'px';
         this.pages.style.top = -this.viewHeight * (this.currentPageNumber - 1) + 'px';
     }
+
     textFadeInOut() {
         const containersDom = document.getElementsByClassName('container');
         let textContainers = Array.prototype.slice.call(containersDom);
@@ -180,20 +202,47 @@ class ScrollPages {
         let textContainerInSight = textContainers[this.currentPageNumber - 1];
         textContainerInSight.classList.add('in-sight')
     }
+
+    updateGraphs() {
+        if (this.currentPageNumber == 5) {
+            document.getElementsByClassName("sup_img")[0].style.visibility = "visible";
+            document.getElementsByClassName("sup_img2")[0].style.visibility = "visible";
+        } else {
+            document.getElementsByClassName("sup_img")[0].style.visibility = "hidden";
+            document.getElementsByClassName("sup_img2")[0].style.visibility = "hidden";
+        }
+
+        if (this.currentPageNumber == 7) {
+            document.getElementsByClassName("dem_img")[0].style.visibility = "visible";
+            document.getElementsByClassName("dem_img2")[0].style.visibility = "visible";
+            document.getElementsByClassName("dem_img3")[0].style.visibility = "visible";
+            document.getElementsByClassName("dem_img4")[0].style.visibility = "visible";
+            document.getElementsByClassName("dem_img5")[0].style.visibility = "visible";
+        } else {
+            document.getElementsByClassName("dem_img")[0].style.visibility = "hidden";
+            document.getElementsByClassName("dem_img2")[0].style.visibility = "hidden";
+            document.getElementsByClassName("dem_img3")[0].style.visibility = "hidden";
+            document.getElementsByClassName("dem_img4")[0].style.visibility = "hidden";
+            document.getElementsByClassName("dem_img5")[0].style.visibility = "hidden";
+        }
+    }
+
     init() {
-        let handleMouseWheel = helper.throttle(this.mouseScroll, 1400, this);
+        let handleMouseWheel = helper.throttle(this.mouseScroll, 600, this);
         let handleResize = helper.debounce(this.resize, 500, this);
         this.pages.style.height = this.viewHeight + 'px';
         this.createNav();
         this.textFadeInOut();
+
+        window.addEventListener('scroll', () => {
+            handleMouseWheel;
+          }, false);
  
-        //document.addEventListener('wheel', handleMouseWheel);
         if (navigator.userAgent.toLowerCase().indexOf('firefox') === -1) {
-            document.addEventListener('wheel', handleMouseWheel);
-            //document.addEventListener('wheel', handleResize);
+            document.addEventListener('scroll', handleMouseWheel ,false);
+            document.addEventListener('wheel', handleMouseWheel, false);
         } else {
-            document.addEventListener('DOMMouseScroll', handleMouseWheel);
-            //document.addEventListener('wheel', handleResize);
+            document.addEventListener('DOMMouseScroll', handleMouseWheel, false);
         }
         document.addEventListener('touchstart', (event) => {
             this.startY = event.touches[0].pageY;
@@ -214,6 +263,10 @@ class ScrollPages {
 
         document.getElementById('backToTop').addEventListener('click', (event) => {
             this.scrollTo(1, event); //console.log("button got clicked!");
+            var supplyScroll = document.getElementById("sup_div");
+            var demandScroll = document.getElementById("scrollableSection_demand");
+            supplyScroll.scrollTo(0,0);
+            demandScroll.scrollTo(0,0);
         });
     }
 }
