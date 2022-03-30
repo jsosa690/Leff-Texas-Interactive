@@ -228,7 +228,7 @@ class ScrollPages {
     }
 
     init() {
-        let handleMouseWheel = helper.throttle(this.mouseScroll, 600, this);
+        let handleMouseWheel = helper.throttle(this.mouseScroll, 1200, this);
         let handleResize = helper.debounce(this.resize, 500, this);
         this.pages.style.height = this.viewHeight + 'px';
         this.createNav();
