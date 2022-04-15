@@ -162,6 +162,8 @@
     #conclusion_1_paragraph,
     #conclusion_2_paragraph {
         font-size: 1rem;
+        padding-left: 0px;
+        padding-right: 0px;
     }
 
     p#sup_step_0, p#sup_step_1 {
