@@ -28,6 +28,7 @@
       font-size: 1.2rem;
       background-color: rgba(255, 255, 255, 0.95);
     }
+    
     /* figure area */
     .sup_img,
     .sup_img2 {
@@ -108,7 +109,7 @@
     p.headerTip {
         font-family: ITC Avant Garde Gothic Std, sans-serif;
         text-shadow: 1px 1px 1px white;
-        font-size: 1rem;
+        font-size: 0.8rem;
         font-weight: 400;
         font-style: normal;
         text-transform: uppercase;
@@ -160,7 +161,7 @@
     span.sup,
     #conclusion_1_paragraph,
     #conclusion_2_paragraph {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 
     p#sup_step_0, p#sup_step_1 {
@@ -209,7 +210,7 @@
         text-align: center;
         top: 50%;
         transform: translateY(-50%);
-        font-size: 1.2rem;
+        font-size: 1rem;
         color: #ffffff;
     }
 
